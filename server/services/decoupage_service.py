@@ -23,7 +23,8 @@ from server.services.audio_service import generate_scene_audio
 from schemas.director_prompts import (
     DIRECTOR_SYSTEM_PROMPT,
     normalize_scene_id,
-    format_prompt_with_book_content
+    format_prompt_with_book_content,
+    format_visual_bible_context
 )
 
 def split_chapter_into_acts(body_text: str, target_acts: int = 3) -> List[str]:
@@ -72,11 +73,27 @@ def decoupage_chapter(
     if not text_to_decoupage.strip():
         raise ValueError(f"Texto do capítulo {chapter_num} vazio ou inexistente.")
 
+    # Carrega Bíblia Visual se existir
+    manifest_file = paths.manifest_path
+    bible_data = {}
+    bible_chars_map = {}
+    if manifest_file.exists():
+        try:
+            with open(manifest_file, "r", encoding="utf-8") as mf:
+                bible_data = json.load(mf)
+            for c in bible_data.get("characters", []):
+                tag = c.get("tag") or f"@{c.get('name', '').lower().replace(' ', '_')}"
+                bible_chars_map[tag.lower()] = c
+        except Exception:
+            pass
+
+    visual_bible_ctx = format_visual_bible_context(bible_data)
+
     client = LLMClient(provider=provider, model=model)
     acts = split_chapter_into_acts(text_to_decoupage, target_acts=3 if len(text_to_decoupage) > 2500 else 1)
     
     all_beats = []
-    scene_location = "Ambiente da História"
+    scene_location = "Sala de aula do 30º andar da Escola Wayside"
     scene_characters = set()
     scene_props = set()
     scene_rhythm = "Dramatic Suspense & Narrative Flow"
@@ -90,10 +107,12 @@ def decoupage_chapter(
                 f"Capítulo: {title}\n"
                 f"Cena ID: {scene_id}\n"
                 f"Ato Dramático: {act_idx} de {len(acts)}\n"
-                "Gere entre 3 e 5 planos cinematográficos de 6.0 segundos cobrindo este ato.\n"
+                "Gere entre 3 e 5 planos cinematográficos de 6.0 segundos cobrindo este ato com PROMPTS ULTRA-DETALHADOS.\n"
+                "OBRIGATÓRIO: 'characters_present' com tags (@) e descrições físicas ricas; 'scene_environment' e 'props_in_shot'.\n"
                 "Lembre-se: 'action_pt' e 'narration' em Português do Brasil; "
-                "'image_prompt_en' e 'video_prompt_en' em Inglês técnico de cinema."
-            )
+                "'image_prompt_en' e 'video_prompt_en' em Inglês técnico de cinema com DNA dos personagens."
+            ),
+            visual_bible_context=visual_bible_ctx
         )
 
         messages = [
@@ -127,6 +146,25 @@ def decoupage_chapter(
             b["shot_id"] = shot_id
             b["target_duration_s"] = 6.0
             
+            # Garante que characters_present esteja preenchido
+            if "characters_present" not in b or not b["characters_present"]:
+                found_tags = re.findall(r"@\w+", f"{b.get('action_pt', '')} {b.get('prompt_en', '')} {b.get('video_prompt_en', '')}")
+                b_chars = []
+                for t in set(found_tags):
+                    tl = t.lower()
+                    if tl in bible_chars_map:
+                        c_info = bible_chars_map[tl]
+                        b_chars.append({
+                            "tag": t,
+                            "name": c_info.get("name", t),
+                            "physical_description": c_info.get("physical_description", "")
+                        })
+                if b_chars:
+                    b["characters_present"] = b_chars
+
+            if "scene_environment" not in b or not b["scene_environment"]:
+                b["scene_environment"] = scene_location
+
             # Garante que os prompts existam
             if "prompt_en" not in b:
                 b["prompt_en"] = b.get("video_prompt_en", b.get("image_prompt_en", ""))

@@ -178,14 +178,42 @@ function renderScene(scene) {
   document.getElementById("scene-location-text").textContent = scene.location || "Ambiente";
   document.getElementById("scene-title-text").textContent = scene.title || "Cena Sem Título";
 
+  // Chip de Locação Principal com cópia 1-clique
+  const locChip = document.getElementById("scene-location-chip");
+  const locTag = scene.location_tag || (scene.locations && scene.locations[0]) || "@sala_30_andar";
+  if (locChip) {
+    locChip.dataset.tag = locTag;
+    locChip.innerHTML = `🏛️ ${escapeHtml(locTag)} <span class="tag-copy-icon">📋</span>`;
+    locChip.onclick = () => copyTag(locTag);
+  }
+
+  // Chips de Personagens com cópia 1-clique
   const charRow = document.getElementById("scene-characters-list");
-  charRow.innerHTML = "";
-  (scene.characters || []).forEach(char => {
-    const chip = document.createElement("span");
-    chip.className = "char-chip";
-    chip.textContent = char;
-    charRow.appendChild(chip);
-  });
+  if (charRow) {
+    charRow.innerHTML = "";
+    (scene.characters || []).forEach(char => {
+      const chip = document.createElement("button");
+      chip.className = "asset-tag-pill char-pill";
+      chip.title = `Clique para copiar ${char}`;
+      chip.innerHTML = `👤 ${escapeHtml(char)} <span class="tag-copy-icon">📋</span>`;
+      chip.onclick = () => copyTag(char);
+      charRow.appendChild(chip);
+    });
+  }
+
+  // Chips de Props e Objetos com cópia 1-clique
+  const propsRow = document.getElementById("scene-props-list");
+  if (propsRow) {
+    propsRow.innerHTML = "";
+    (scene.props || []).forEach(prop => {
+      const chip = document.createElement("button");
+      chip.className = "asset-tag-pill prop-pill";
+      chip.title = `Clique para copiar ${prop}`;
+      chip.innerHTML = `📦 ${escapeHtml(prop)} <span class="tag-copy-icon">📋</span>`;
+      chip.onclick = () => copyTag(prop);
+      propsRow.appendChild(chip);
+    });
+  }
 
   const beats = scene.beats || [];
   let totalDur = 0;
@@ -243,6 +271,107 @@ function createShotCard(beat, planNumber) {
   }
   if (!slidersHtml) {
     slidersHtml = `<div class="slider-pill"><span>Câmera:</span><strong>Estática</strong></div>`;
+  }
+
+  const slidersText = Object.entries(sliders)
+    .filter(([_, v]) => v !== 0)
+    .map(([k, v]) => `${capitalize(k)}: ${v > 0 ? '+' + v : v}`)
+    .join(', ') || 'Câmera Estática';
+
+  // 1. Tags Rápidas de Ativos (Clique para Copiar)
+  const locTag = beat.location_tag || currentSceneData?.location_tag || "@sala_30_andar";
+  const locName = beat.location_name || currentSceneData?.location || "Sala do 30º Andar (Wayside School)";
+  const sceneEnv = beat.scene_environment || "Sala de aula do 30º andar da Escola Wayside, janelas altas de guilhotina com vista para as nuvens, luz fria de fim de tarde.";
+  const charsPresent = beat.characters_present || [];
+  const propsPresent = beat.props_present || [];
+  const propsInShot = beat.props_in_shot || [];
+
+  const quickTagsHtml = `
+    <div class="shot-quick-tags-bar">
+      <span class="shot-quick-tags-title">TAGS DO PLANO (COPIAR):</span>
+      <button class="tag-btn tag-btn-location" onclick="copyTag('${escapeForJs(locTag)}')" title="Copiar tag de cenário">
+        🏛️ ${escapeHtml(locTag)} 📋
+      </button>
+      ${charsPresent.map(cp => `
+        <button class="tag-btn tag-btn-char" onclick="copyTag('${escapeForJs(cp.tag || '')}')" title="Copiar tag do personagem">
+          👤 ${escapeHtml(cp.tag || '')} 📋
+        </button>
+      `).join('')}
+      ${(propsPresent.length ? propsPresent.map(p => p.tag) : propsInShot).map(pTag => `
+        <button class="tag-btn tag-btn-prop" onclick="copyTag('${escapeForJs(pTag)}')" title="Copiar tag do objeto">
+          📦 ${escapeHtml(pTag)} 📋
+        </button>
+      `).join('')}
+    </div>
+  `;
+
+  // 2. Card Detalhado do Cenário & Locação
+  const locationBoxHtml = `
+    <div class="element-detail-card location-detail-card">
+      <div class="element-detail-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="tag-btn tag-btn-location" onclick="copyTag('${escapeForJs(locTag)}')" style="margin:0;">
+            🏛️ ${escapeHtml(locTag)} 📋
+          </button>
+          <strong style="color:#f8fafc; font-size:13.5px;">${escapeHtml(locName)}</strong>
+        </div>
+        <button class="btn-copy-mini" onclick="copyTag('${escapeForJs(locTag)}')">Copiar @cenário</button>
+      </div>
+      <div class="element-detail-desc">${escapeHtml(sceneEnv)}</div>
+    </div>
+  `;
+
+  // 3. Cards Detalhados dos Personagens em Cena
+  let charsHtml = "";
+  if (charsPresent.length > 0) {
+    charsHtml = charsPresent.map(cp => `
+      <div class="element-detail-card char-detail-card">
+        <div class="element-detail-header">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="tag-btn tag-btn-char" onclick="copyTag('${escapeForJs(cp.tag || '')}')" style="margin:0;">
+              👤 ${escapeHtml(cp.tag || '@personagem')} 📋
+            </button>
+            <strong style="color:#f8fafc; font-size:13.5px;">${escapeHtml(cp.name || '')}</strong>
+          </div>
+          <button class="btn-copy-mini" onclick="copyTag('${escapeForJs(cp.tag || '')}')">Copiar @tag</button>
+        </div>
+        <div class="element-detail-desc">${escapeHtml(cp.physical_description || 'Descrição física não informada.')}</div>
+      </div>
+    `).join("");
+  } else {
+    charsHtml = `<div class="element-empty-msg">Plano focado em detalhes de cenário e objetos (sem personagens principais em destaque).</div>`;
+  }
+
+  // 4. Cards Detalhados dos Objetos e Props
+  let propsHtml = "";
+  if (propsPresent.length > 0) {
+    propsHtml = propsPresent.map(p => `
+      <div class="element-detail-card prop-detail-card">
+        <div class="element-detail-header">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="tag-btn tag-btn-prop" onclick="copyTag('${escapeForJs(p.tag || '')}')" style="margin:0;">
+              📦 ${escapeHtml(p.tag || '')} 📋
+            </button>
+            <strong style="color:#f8fafc; font-size:13.5px;">${escapeHtml(p.name || '')}</strong>
+          </div>
+          <button class="btn-copy-mini" onclick="copyTag('${escapeForJs(p.tag || '')}')">Copiar @objeto</button>
+        </div>
+        <div class="element-detail-desc">${escapeHtml(p.description || 'Objeto físico essencial do plano.')}</div>
+      </div>
+    `).join("");
+  } else if (propsInShot.length > 0) {
+    propsHtml = propsInShot.map(pTag => `
+      <div class="element-detail-card prop-detail-card">
+        <div class="element-detail-header">
+          <button class="tag-btn tag-btn-prop" onclick="copyTag('${escapeForJs(pTag)}')">
+            📦 ${escapeHtml(pTag)} 📋
+          </button>
+          <button class="btn-copy-mini" onclick="copyTag('${escapeForJs(pTag)}')">Copiar @objeto</button>
+        </div>
+      </div>
+    `).join("");
+  } else {
+    propsHtml = `<div class="element-empty-msg">Nenhum adereço secundário neste plano.</div>`;
   }
 
   // Imagem Hero 16:9 Cinematográfica do Plano
@@ -394,6 +523,9 @@ function createShotCard(beat, planNumber) {
       </div>
     </div>
 
+    <!-- Barra de Tags Rápidas do Plano (Clique para Copiar) -->
+    ${quickTagsHtml}
+
     <!-- Stepper Visual de 4 Passos -->
     ${stepperHtml}
 
@@ -417,6 +549,41 @@ function createShotCard(beat, planNumber) {
       <div>
         <strong>Continuidade / Start Frame:</strong> 
         <span>${escapeHtml(beat.start_frame_instruction || "Utilizar P1_front como referência inicial.")}</span>
+      </div>
+    </div>
+
+    <!-- Bloco 0: Elementos Presentes na Cena (Personagens com DNA, Cenário com @tag e Props com @tags) -->
+    <div class="shot-block elements-block" style="border-left: 3px solid var(--gold-primary); background: rgba(245, 158, 11, 0.03); margin-bottom: 12px;">
+      <div class="block-header">
+        <div class="block-title" style="color:var(--gold-primary);">📋 ELEMENTOS EM CENA (O QUE CADA BLOCO DE CENA PRECISA)</div>
+      </div>
+      <div style="padding:12px 14px; background:rgba(0,0,0,0.28); border-radius:6px; display:flex; flex-direction:column; gap:12px;">
+        <!-- Cenário -->
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <strong style="color:#cbd5e1; font-size:13px; letter-spacing:0.3px;">🏛️ Cenário & Locação:</strong>
+            <span style="font-size:11px; color:var(--text-muted);">Clique na tag para copiar</span>
+          </div>
+          ${locationBoxHtml}
+        </div>
+
+        <!-- Personagens -->
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <strong style="color:#cbd5e1; font-size:13px; letter-spacing:0.3px;">👤 Personagens em Cena:</strong>
+            <span style="font-size:11px; color:var(--text-muted);">${charsPresent.length} presente(s)</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px;">${charsHtml}</div>
+        </div>
+
+        <!-- Props e Objetos -->
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <strong style="color:#cbd5e1; font-size:13px; letter-spacing:0.3px;">📦 Objetos / Props em Jogo:</strong>
+            <span style="font-size:11px; color:var(--text-muted);">${(propsPresent.length || propsInShot.length)} objeto(s)</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px;">${propsHtml}</div>
+        </div>
       </div>
     </div>
 
@@ -460,6 +627,7 @@ function createShotCard(beat, planNumber) {
         <div class="shot-block" style="margin-bottom:0;">
           <div class="block-header">
             <div class="block-title">🎛️ 3. CONTROLES DE CÂMERA (SLIDERS NUMÉRICOS KLING AI)</div>
+            <button class="btn-copy" onclick="copyText('${escapeForJs(slidersText)}')">📋 Copiar Sliders</button>
           </div>
           <div class="camera-sliders-grid">${slidersHtml}</div>
         </div>
@@ -1541,6 +1709,17 @@ function copyText(text) {
     showToast("Texto copiado para a área de transferência!");
   }).catch(err => {
     console.error("Falha ao copiar:", err);
+  });
+}
+
+function copyTag(tag) {
+  if (!tag) return;
+  const cleanTag = String(tag).trim();
+  navigator.clipboard.writeText(cleanTag).then(() => {
+    showToast(`🏷️ Tag "${cleanTag}" copiada! Pronta para usar no prompt.`);
+  }).catch(err => {
+    console.error("Falha ao copiar tag:", err);
+    showToast(`Copiado: ${cleanTag}`);
   });
 }
 

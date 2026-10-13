@@ -105,9 +105,24 @@
               <span id="scene-location-text">Sala de aula do 30º andar</span>
             </div>
             <h2 id="scene-title-text" class="scene-title">Dona Gorf — O Feitiço das Maçãs</h2>
-            <div class="characters-row" id="scene-characters-list">
-              <span class="char-chip">@dona_gorf</span>
-              <span class="char-chip">@joe</span>
+            <div class="scene-global-tags-bar" id="scene-global-tags-bar">
+              <div class="tags-group-item">
+                <span class="tags-group-title">🏛️ Locação:</span>
+                <button id="scene-location-chip" class="asset-tag-pill location-pill" onclick="copyTag(this.dataset.tag || '@sala_30_andar')">
+                  🏛️ @sala_30_andar <span class="tag-copy-icon">📋</span>
+                </button>
+              </div>
+              <div class="tags-group-item">
+                <span class="tags-group-title">👤 Personagens:</span>
+                <div class="characters-row" id="scene-characters-list">
+                  <span class="char-chip">@dona_gorf</span>
+                  <span class="char-chip">@joe</span>
+                </div>
+              </div>
+              <div class="tags-group-item">
+                <span class="tags-group-title">📦 Props & Objetos:</span>
+                <div class="props-row" id="scene-props-list"></div>
+              </div>
             </div>
           </div>
 

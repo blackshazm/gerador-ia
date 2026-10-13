@@ -2604,3 +2604,254 @@ body {
   color: var(--text-muted);
   font-family: var(--font-mono);
 }
+
+/* ========================================================
+   BARRA GLOBAL DE TAGS DA CENA & CHIPS COPIÁVEIS COM 1-CLIQUE
+   ======================================================== */
+.scene-global-tags-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.tags-group-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tags-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.props-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.asset-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+}
+
+.asset-tag-pill:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.asset-tag-pill:active {
+  transform: translateY(0);
+}
+
+.asset-tag-pill .tag-copy-icon {
+  font-size: 11px;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.asset-tag-pill:hover .tag-copy-icon {
+  opacity: 1;
+}
+
+.location-pill {
+  background: rgba(14, 165, 233, 0.12);
+  border-color: rgba(14, 165, 233, 0.4);
+  color: #38bdf8;
+}
+
+.location-pill:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.char-pill {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: var(--gold-primary);
+}
+
+.char-pill:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+.prop-pill {
+  background: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+.prop-pill:hover {
+  border-color: #c084fc;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+}
+
+/* ========================================================
+   BARRA DE TAGS RÁPIDAS NO TOPO DE CADA CARD DE PLANO
+   ======================================================== */
+.shot-quick-tags-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  border-left: 3px solid #6366f1;
+}
+
+.shot-quick-tags-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #94a3b8;
+  margin-right: 2px;
+}
+
+.tag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  transition: all var(--transition-fast);
+}
+
+.tag-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.tag-btn-location {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+.tag-btn-location:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.35);
+}
+
+.tag-btn-char {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.tag-btn-char:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.35);
+}
+
+.tag-btn-prop {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(192, 132, 252, 0.4);
+  color: #c084fc;
+}
+
+.tag-btn-prop:hover {
+  border-color: #c084fc;
+  box-shadow: 0 0 8px rgba(192, 132, 252, 0.35);
+}
+
+/* ========================================================
+   CARDS DETALHADOS DE ELEMENTOS (CENÁRIO, CHARS, PROPS)
+   ======================================================== */
+.element-detail-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: background var(--transition-fast);
+}
+
+.element-detail-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.char-detail-card {
+  border-left: 3px solid var(--gold-primary);
+}
+
+.location-detail-card {
+  border-left: 3px solid #38bdf8;
+}
+
+.prop-detail-card {
+  border-left: 3px solid #c084fc;
+}
+
+.element-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.element-detail-desc {
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.45;
+}
+
+.btn-copy-mini {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-copy-mini:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.element-empty-msg {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-style: italic;
+  padding: 4px 0;
+}
+

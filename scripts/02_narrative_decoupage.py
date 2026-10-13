@@ -40,7 +40,8 @@ except ImportError:
 from schemas.director_prompts import (
     DIRECTOR_SYSTEM_PROMPT,
     normalize_scene_id,
-    format_prompt_with_book_content
+    format_prompt_with_book_content,
+    format_visual_bible_context
 )
 
 def extract_chapter_text(markdown_path: Path, chapter_num: int) -> dict:
@@ -114,16 +115,19 @@ def split_chapter_into_acts(body_text: str, target_acts: int = 4) -> list:
 
     return acts
 
-def decoupage_act_with_ai(client: LLMClient, scene_id: str, chapter_title: str, act_num: int, total_acts: int, act_text: str) -> list:
-    """Decupa um ato dramático específico gerando entre 4 e 5 planos cinematográficos ricos."""
+def decoupage_act_with_ai(client: LLMClient, scene_id: str, chapter_title: str, act_num: int, total_acts: int, act_text: str, visual_bible_context: str = "") -> list:
+    """Decupa um ato dramático específico gerando entre 4 e 5 planos cinematográficos ricos com prompts ultra-detalhados."""
     book_block = format_prompt_with_book_content(
         act_text,
         extra_notes=(
             f"Capítulo: {chapter_title}\n"
             f"Ato: {act_num}/{total_acts}\n"
             "Gere exatamente 4 a 5 planos de 6.0 segundos cobrindo TODOS os diálogos e ações físicas deste trecho.\n"
-            "Responda APENAS com um objeto JSON contendo o array 'beats' com os planos detalhados (shot_type, lens_mm, eyeline_match, camera_movement, action_pt, narration, prompt_en, negative_prompt)."
-        )
+            "OBRIGATÓRIO: Identifique 'characters_present' com tags (@) e descrições físicas ricas; inclua 'scene_environment' e 'props_in_shot'.\n"
+            "Os campos 'image_prompt_en' e 'video_prompt_en' DEVEM incluir a descrição física detalhada dos personagens, iluminação volumétrica e lentes 35mm.\n"
+            "Responda APENAS com um objeto JSON contendo o array 'beats'."
+        ),
+        visual_bible_context=visual_bible_context
     )
     user_prompt = f"IMPORTANTE: Inicie sua resposta imediatamente com '{{' e termine com '}}'. Sem thinking process.\n\n{book_block}"
 
@@ -146,12 +150,34 @@ def decoupage_full_chapter(chapter_data: dict, provider: str = None, model: str 
     scene_id = normalize_scene_id(chapter_data['chapter_num'])
     acts = split_chapter_into_acts(chapter_data["body"], target_acts=4)
 
+    # Carrega Bíblia Visual
+    bible_data = load_visual_bible()
+    bible_context = format_visual_bible_context(bible_data)
+
+    bible_chars_map = {}
+    for c in bible_data.get("characters", []):
+        tag = c.get("tag") or f"@{c.get('name', '').lower().replace(' ', '_')}"
+        bible_chars_map[tag.lower()] = c
+
+    bible_locations_map = {}
+    for l in bible_data.get("locations", []):
+        tag = l.get("tag") or f"@{l.get('name', '').lower().replace(' ', '_')}"
+        bible_locations_map[tag.lower()] = l
+
+    bible_props_map = {}
+    for p in bible_data.get("props", []):
+        tag = p.get("tag") or f"@{p.get('name', '').lower().replace(' ', '_')}"
+        bible_props_map[tag.lower()] = p
+
     print(f"\n[DECUPAGEM COMPLETA] Capítulo {chapter_data['chapter_num']} dividido em {len(acts)} atos dramáticos.")
+    if bible_context:
+        print(f"  -> Bíblia Visual carregada ({len(bible_chars_map)} personagens, {len(bible_locations_map)} cenários, {len(bible_props_map)} props).")
+
     all_beats = []
 
     for act_idx, act_text in enumerate(acts, start=1):
         try:
-            beats = decoupage_act_with_ai(client, scene_id, chapter_data["title"], act_idx, len(acts), act_text)
+            beats = decoupage_act_with_ai(client, scene_id, chapter_data["title"], act_idx, len(acts), act_text, visual_bible_context=bible_context)
             all_beats.extend(beats)
         except Exception as e:
             print(f"  [Aviso] Falha no Ato {act_idx}: {e}. Continuando com os demais atos...")
@@ -160,13 +186,90 @@ def decoupage_full_chapter(chapter_data: dict, provider: str = None, model: str 
     if not all_beats:
         raise RuntimeError("Não foi possível gerar planos para o capítulo.")
 
-    # Renumera e padroniza todos os planos sequencialmente
+    # Renumera e enriquece todos os planos sequencialmente com tags canônicas (@)
     for idx, beat in enumerate(all_beats, start=1):
         beat["shot_id"] = f"{scene_id}_SH{idx:02d}"
         if "target_duration_s" not in beat:
             beat["target_duration_s"] = 6.0
         if "kling_camera_controls" not in beat:
             beat["kling_camera_controls"] = {"zoom": 0.0, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0}
+
+        # 1. Enriquecimento de Locação / Cenário com @
+        loc_tag = beat.get("location_tag") or "@sala_30_andar"
+        if not loc_tag.startswith("@"):
+            loc_tag = f"@{loc_tag}"
+        beat["location_tag"] = loc_tag
+        loc_info = bible_locations_map.get(loc_tag.lower()) or bible_locations_map.get("@sala_30_andar", {})
+        beat["location_name"] = loc_info.get("name", "Sala do 30º Andar (Wayside School)")
+        beat["location_image"] = loc_info.get("image_primary", "assets/sala_30_andar.jpg")
+
+        if "scene_environment" not in beat or not beat["scene_environment"]:
+            beat["scene_environment"] = loc_info.get("description", "Sala de aula do 30º andar da Escola Wayside, janelas altas de guilhotina, carteiras escolares de madeira, luz volumétrica de fim de tarde.")
+
+        # 2. Garante enriquecimento dos personagens presentes a partir da Bíblia se omitido
+        if "characters_present" not in beat or not beat["characters_present"]:
+            found_tags = re.findall(r"@\w+", f"{beat.get('action_pt', '')} {beat.get('prompt_en', '')} {beat.get('video_prompt_en', '')}")
+            beat_chars = []
+            for t in set(found_tags):
+                tl = t.lower()
+                if tl in bible_chars_map:
+                    c_info = bible_chars_map[tl]
+                    beat_chars.append({
+                        "tag": t,
+                        "name": c_info.get("name", t),
+                        "physical_description": c_info.get("physical_description", "")
+                    })
+            if beat_chars:
+                beat["characters_present"] = beat_chars
+
+        # 3. Enriquecimento Completo de Objetos / Props com tags @
+        beat_text = f"{beat.get('action_pt', '')} {beat.get('narration', '')} {beat.get('prompt_en', '')} {beat.get('video_prompt_en', '')}".lower()
+        detected_props = list(beat.get("props_in_shot") or [])
+
+        # Detecção inteligente por palavras-chave dramáticas
+        if any(w in beat_text for w in ["maçã", "maca", "apple"]):
+            detected_props.append("@maca_vermelha")
+        if any(w in beat_text for w in ["giz", "lousa", "quadro", "chalk", "blackboard"]):
+            detected_props.append("@giz_lousa")
+        if any(w in beat_text for w in ["prova", "caderno", "copiou", "copiar", "aritmética", "somar", "test", "notebook"]):
+            detected_props.append("@caderno_prova")
+        if any(w in beat_text for w in ["lápis", "lapis", "pencil"]):
+            detected_props.append("@lapis_amarelo")
+        if any(w in beat_text for w in ["espelho", "bolsa", "mirror", "reflexo"]):
+            detected_props.append("@espelho_bolsa")
+        if any(w in beat_text for w in ["patins", "skate", "roller"]):
+            detected_props.append("@patins_vintage")
+        if any(w in beat_text for w in ["apito", "recreio", "louis", "whistle"]):
+            detected_props.append("@apito_louis")
+        if any(w in beat_text for w in ["orelha", "orelhas", "ear", "ears"]):
+            detected_props.append("@orelhasgorf")
+        if any(w in beat_text for w in ["língua", "lingua", "tongue"]):
+            detected_props.append("@lingua_gorf")
+        if any(w in beat_text for w in ["carteira", "mesa", "desk"]):
+            detected_props.append("@carteira_escolar")
+
+        # Fallback para garantir que NENHUM plano fique sem props essenciais
+        if not detected_props:
+            detected_props = ["@maca_vermelha", "@giz_lousa"]
+
+        normalized_props = []
+        for p in detected_props:
+            p_tag = p if p.startswith("@") else f"@{p}"
+            if p_tag not in normalized_props:
+                normalized_props.append(p_tag)
+        beat["props_in_shot"] = normalized_props
+
+        # Constrói objetos detalhados de props_present
+        props_present = []
+        for pt in normalized_props:
+            p_info = bible_props_map.get(pt.lower()) or {}
+            props_present.append({
+                "tag": pt,
+                "name": p_info.get("name", pt.replace("@", "").replace("_", " ").title()),
+                "description": p_info.get("description", "Objeto/adereço físico em cena.")
+            })
+        beat["props_present"] = props_present
+
         # Garante prompts enriquecidos de imagem e vídeo
         v_prompt = beat.get("video_prompt_en") or beat.get("prompt_en", "")
         i_prompt = beat.get("image_prompt_en") or beat.get("prompt_en", "")
@@ -181,12 +284,20 @@ def decoupage_full_chapter(chapter_data: dict, provider: str = None, model: str 
     if not characters:
         characters = ["@dona_gorf", "@joe", "@todd"]
 
+    all_scene_props = []
+    for b in all_beats:
+        for p in b.get("props_in_shot", []):
+            if p not in all_scene_props:
+                all_scene_props.append(p)
+
     full_scene_json = {
         "scene_id": scene_id,
         "title": chapter_data["title"],
-        "location": "Sala de aula da Escola Wayside — Trigésimo Andar",
+        "location": "Sala do 30º Andar (Wayside School)",
+        "location_tag": "@sala_30_andar",
+        "locations": ["@sala_30_andar"],
         "characters": characters[:5],
-        "props": ["@maca_vermelha", "@giz_lousa", "@espelho"],
+        "props": all_scene_props,
         "scene_rhythm": "Dramatic Suspense & Fast Cuts",
         "audio_continuous_block": True,
         "beats": all_beats

@@ -547,6 +547,70 @@
         "hero": "assets/erasers.jpg",
         "propsheet": "assets/erasers.jpg"
       }
+    },
+    {
+      "tag": "@giz_lousa",
+      "name": "Giz e Lousa Verde",
+      "description": "Giz branco cilíndrico e apagador de feltro sobre a calha de madeira da imensa lousa verde escura da sala de aula.",
+      "casting_prompt_realistic": "Cinematic close-up of a stick of white chalk and felt eraser resting on wooden chalkboard tray, 85mm macro lens, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of chalk and blackboard eraser, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg"
+    },
+    {
+      "tag": "@espelho_bolsa",
+      "name": "Espelho de Bolsa da Jenny",
+      "description": "Pequeno espelho de mão oval com moldura vintage de latão polido, retirado da bolsa de Jenny para refletir o feitiço de volta para a professora.",
+      "casting_prompt_realistic": "Cinematic macro shot of an ornate vintage brass pocket mirror reflecting bright light, 85mm lens, f/2.0, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a small polished brass hand mirror with sparkling reflection, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg"
+    },
+    {
+      "tag": "@caderno_prova",
+      "name": "Caderno de Prova de Matemática",
+      "description": "Folhas pautadas de caderno escolar com contas de adição e aritmética infantil escritas a lápis, com marcas de borracha e suor.",
+      "casting_prompt_realistic": "Cinematic close-up of an open school test notebook with handwritten elementary math sums, yellow wooden desk, 85mm macro, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of an open notebook with cute hand-drawn numbers, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/books.jpg"
+    },
+    {
+      "tag": "@lapis_amarelo",
+      "name": "Lápis Escolar Amarelo",
+      "description": "Lápis clássico de madeira amarelo apontado com grafite escuro e borracha rosa no topo.",
+      "casting_prompt_realistic": "Cinematic macro photo of a classic yellow wooden pencil with sharpened graphite tip on aged wood desk, 85mm, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a classic yellow pencil, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/pencils.jpg"
+    },
+    {
+      "tag": "@patins_vintage",
+      "name": "Patins Retrô de Maurecia",
+      "description": "Par de patins vintage de quatro rodas de metal com tiras de couro azul e cadarços brancos, usados por Maurecia para deslizar pela sala.",
+      "casting_prompt_realistic": "Cinematic close-up of vintage quad roller skates with blue leather straps on wooden floor, 85mm lens, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of colorful quad roller skates, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg"
+    },
+    {
+      "tag": "@apito_louis",
+      "name": "Apito Prateado de Recreio",
+      "description": "Apito metálico prateado brilhante de árbitro com cordão preto pendurado no pescoço do professor do recreio Louis.",
+      "casting_prompt_realistic": "Cinematic macro shot of a shiny silver metal referee whistle with black lanyard, 85mm lens, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a shiny cartoon whistle, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg"
+    },
+    {
+      "tag": "@lingua_gorf",
+      "name": "Língua da Dona Gorf",
+      "description": "Língua comprida e pontuda que a professora Gorf estica para fora com estalo sonoro como parte do feitiço da maçã.",
+      "casting_prompt_realistic": "Cinematic close-up of long pointed tongue protruding dramatically, 85mm macro, 8k",
+      "casting_prompt_stylized": "Stylized 3D elongated mischievous tongue, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg"
+    },
+    {
+      "tag": "@carteira_escolar",
+      "name": "Carteira Escolar de Carvalho",
+      "description": "Carteira infantil antiga de madeira maciça de carvalho com tampo inclinado, ranhuras para lápis e marcas de uso escolar.",
+      "casting_prompt_realistic": "Cinematic shot of a vintage wooden school desk on aged floorboards, 35mm photograph, 8k",
+      "casting_prompt_stylized": "Stylized 3D wooden school desk, warm Pixar lighting, 8k --ar 1:1",
+      "image_primary": "assets/sala_30_andar.jpg"
     }
   ]
 }

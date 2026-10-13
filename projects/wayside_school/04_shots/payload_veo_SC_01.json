@@ -1,178 +1,138 @@
 [
   {
-    "shot_id": "SC01_SH01",
+    "shot_id": "SC_01_SH01",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Wide Establishing Shot, 35mm, Slow optical push-in frontal. Continuous 6.0-second cinematic wide shot at 24fps. 0-2s: Mrs. Gorf stands motionless before the chalkboard, harsh cold window light highlighting her severe silhouette. 2-4s: Slow optical push-in camera movement as she subtly raises her chin and casts a sharp, piercing gaze across the desks. 4-6s: Tension builds as dust motes drift through the beam of light, camera gently drifting forward, natural 24fps motion blur, zero morphing, photorealistic cinema.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar retrato frontal da professora: 02_visual_bible/characters/@dona_gorf/P1_front.png"
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Wide Establishing Shot, 35mm, Slow 24fps optical push-in frontal. Continuous 6.0-second cinematic wide shot at 24fps. 0-2s: Mrs. Gorf stands completely motionless behind her desk, harsh window light carving her severe silhouette as dust particles drift in the air. 2-4s: Slow optical push-in camera movement as she subtly raises her chin and casts a sharp, piercing cold gaze across the classroom desks. 4-6s: Tension holds, steady subtle chest breathing, natural 24fps motion blur, zero morphing, photorealistic cinema.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar retrato frontal canônico: 02_visual_bible/characters/@dona_gorf/P1_front.jpg"
   },
   {
-    "shot_id": "SC01_SH02",
+    "shot_id": "SC_01_SH02",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Close-up, 50mm, Low-angle subtle push-in. Continuous 6.0-second medium close-up at 24fps. 0-2s: Mrs. Gorf leans forward over the dark desk, knuckles tensing on the wood surface. 2-4s: Her lips part as she delivers her menacing threat, nostrils slightly flaring, eyes narrowing in chilling focus. 4-6s: Slight low-angle camera push-in emphasizing her imposing authority, steady breathing, fluid cinematic physics, zero morphing.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar último frame do Plano 01 (SC01_SH01_last.png) para preservar iluminação e posição da professora."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Medium Two-Shot, 50mm, Subtle lateral drift with slow push-in. Continuous 6.0-second medium shot at 24fps. 0-2s: Joe nervously clutches his pencil, eyes darting sideways at John's test paper. 2-4s: Slow subtle camera drift as Joe stretches his neck and hastily scribbles a copied number, while John turns his head in sudden alarm. 4-6s: Both boys freeze, trembling with guilty dread, authentic human micro-movements, stable cinematic physics, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar imagem frontal de Joe: 02_visual_bible/characters/@joe/P1_front.jpg"
   },
   {
-    "shot_id": "SC01_SH03",
+    "shot_id": "SC_01_SH03",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Shot, 50mm, Slow lateral drift. Continuous 6.0-second medium shot at 24fps. 0-2s: Joe clutches his pencil with shaking hands, nervously gulping. 2-4s: He stretches his neck and darts his anxious eyes sideways, peeking at the test paper on John's adjacent desk. 4-6s: Slow subtle lateral camera drift framing his panic, natural human micro-movements, authentic film shutter speed, stable temporal coherence.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar imagem frontal de Joe: 02_visual_bible/characters/@joe/P1_front.png"
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Close-Up on Mrs. Gorf, 85mm, Slow low-angle push-in. Continuous 6.0-second macro close-up at 24fps. 0-2s: Extreme focus on Mrs. Gorf's sinister face; her pointed right ear twitches twice mechanically. 2-4s: Her left ear twitches, eyes widening with dark supernatural delight as her long pointed tongue extends out. 4-6s: Camera slowly pushes in, dramatic optical tension, crisp skin texture, clean fluid motion blur, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar close de Dona Gorf do Plano 01 ou modelsheet de expressões."
   },
   {
-    "shot_id": "SC01_SH04",
+    "shot_id": "SC_01_SH04",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Close-up, 85mm, Macro tracking zoom. Continuous 6.0-second macro shot at 24fps. 0-2s: Extreme close-up on Mrs. Gorf's right ear in sharp focus. 2-4s: The pointed ear twitches precisely twice in a bizarre mechanical motion as she initiates her curse. 4-6s: Camera slowly pulls in slightly with subtle optical depth, sharp focus on skin and hair details, clean organic motion blur, zero distortion.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar último frame do Plano 02 focado no rosto da Dona Gorf."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Wide Reaction Shot, 35mm, Slow tracking crane shot. Continuous 6.0-second cinematic take at 24fps. 0-2s: Focus on the three red apples resting on empty desks, faint emerald smoke dissipating. 2-4s: Camera tracks backward revealing terrified children frozen in their seats, Stephen sobbing silently. 4-6s: Mrs. Gorf steps into frame from behind, shadow stretching across the floorboards, stable cinematic camera, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar foto da maçã sobre a mesa: 02_visual_bible/props/@maca_vermelha/P1_front.jpg"
   },
   {
-    "shot_id": "SC01_SH05",
+    "shot_id": "SC_01_SH05",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Macro Insert, 50mm, Rapid push-in with whip tension. Continuous 6.0-second close-up take at 24fps. 0-2s: Mrs. Gorf's eyes widen with sinister delight. 2-4s: Her pointed tongue sticks out past her thin lips in an unsettling, supernatural gesture. 4-6s: Camera holds steady on her piercing face as the curse is cast, realistic facial muscle micro-movements, stable cinematic lighting.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar foto da maçã canônica: 02_visual_bible/props/@maca_vermelha/P1_front.png"
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Medium Shot, 50mm, Subtle dolly forward. Continuous 6.0-second shot at 24fps. 0-2s: Mrs. Gorf's long bony fingers delicately place another apple into a neat row on her desk. 2-4s: She slowly lifts her severe face, lips curling into an arrogant smug smile. 4-6s: Camera holds as her cold eyes scan the room, dust motes drifting in the beam of light, natural cinematic motion, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar último frame do Plano 04 ou close da mesa com maçãs."
   },
   {
-    "shot_id": "SC01_SH06",
+    "shot_id": "SC_01_SH06",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Shot, 50mm, Slow shock tracking push-in. Continuous 6.0-second medium close-up at 24fps. 0-2s: Joe's eyes widen in pure disbelief as he hears the snap of the spell. 2-4s: A soft gasp escapes his lips, his hands trembling violently on the wooden desk. 4-6s: Camera slowly glides closer to his terrified face, high temporal stability, photorealistic skin and hair rendering.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar retrato frontal de Todd: 02_visual_bible/characters/@todd/P1_front.png"
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Medium Close-Up, 50mm, Slow tracking shot from door. Continuous 6.0-second shot at 24fps. 0-2s: Kathy pauses in doorway, biting her lip nervously. 2-4s: Camera dollies slightly inward as Mrs. Gorf turns her head into frame, pointed ears twitching rapidly. 4-6s: Kathy gasps as a flash of green light flickers, smooth cinematic physics, authentic 24fps film motion, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar modelo de Kathy entrando na porta: 02_visual_bible/locations/sala_30_andar.jpg"
   },
   {
-    "shot_id": "SC01_SH07",
+    "shot_id": "SC_01_SH07",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Close-up, 85mm, Slow macro descent. Continuous 6.0-second still-life take at 24fps. 0-2s: Camera gently cranes down toward the lone red apple resting on Joe's empty wooden school chair. 2-4s: The apple sits completely still, sunlight catching the waxy red skin with realistic specular reflection. 4-6s: Dust motes slowly swirl in the air above the apple, peaceful yet eerie conclusion of the beat.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar último frame de Dona Gorf olhando friamente para a classe."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Over-the-Shoulder Sequence, 50mm, Rapid rhythmic whip-pan. Continuous 6.0-second sequence take at 24fps. 0-2s: Over Mrs. Gorf's shoulder, her ears twitch rhythmically as Paul sneezes and instantaneously pops into a bouncing red apple. 2-4s: Nancy screams 'Saúde!' and bursts into emerald smoke, dropping a glossy apple on the desk. 4-6s: Camera tracks along the row of fresh apples rolling to a halt, fluid cinematic action, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar cena do ombro da professora em direção aos alunos."
   },
   {
-    "shot_id": "SC01_SH08",
+    "shot_id": "SC_01_SH08",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Close-up, 85mm, Slow drift em Stephen. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow drift em Stephen with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar retrato frontal de Stephen: 02_visual_bible/characters/@stephen/P1_front.png"
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Tracking Shot to Insert, 35mm, Low-angle fast tracking dolly. Continuous 6.0-second tracking shot at 24fps. 0-2s: Low-angle camera rushes alongside Maurecia skating desperately toward the doorway. 2-4s: A sudden emerald shimmer engulfs her mid-stride; her body instantly condenses into a heavy crimson apple hitting the floor. 4-6s: Camera settles close as the red apple rolls past the doorframe into the hallway, smooth film physics, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar Maurecia correndo em direção à porta da sala de aula."
   },
   {
-    "shot_id": "SC01_SH09",
+    "shot_id": "SC_01_SH09",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Shot, 35mm, Panning rápido da porta até a mesa. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Panning rápido da porta até a mesa with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Plano geral dinâmico da sala com flashes de luzes verdes onde alunos se transformam."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Group Tableau, 50mm, Slow optical push-in. Continuous 6.0-second shot at 24fps. 0-2s: Mrs. Gorf stacks the twelfth apple onto the growing pile on her desk. 2-4s: Hearing laughter, she pivots sharply; the three boys in the back row instantly transform into three bouncing red apples. 4-6s: Complete dead silence falls over the classroom as dust motes float through the light, zero morphing, photorealistic cinema.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar foto da pirâmide de maçãs sobre a mesa da professora."
   },
   {
-    "shot_id": "SC01_SH10",
+    "shot_id": "SC_01_SH10",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Tracking Action Shot, 35mm, Tracking shot correndo lateralmente com Maurecia. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Tracking shot correndo lateralmente com Maurecia with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar retrato de Maurecia correndo em direção à porta de madeira."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Wide Establishing Shot, 35mm, Slow steady tracking with actor. Continuous 6.0-second take at 24fps. 0-2s: Louis walks into the frame, scratching his head and looking around at the vacant desks. 2-4s: His eyes lock onto the dozen red apples on Mrs. Gorf's desk; he knits his brows in confusion. 4-6s: Mrs. Gorf smiles rigidly from behind her desk, holding a piece of chalk, natural 24fps motion blur, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar modelo de Louis entrando na sala: 02_visual_bible/characters/@louis/P1_front.jpg"
   },
   {
-    "shot_id": "SC01_SH11",
+    "shot_id": "SC_01_SH11",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Shot, 50mm, Câmera estática no chão. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera estática no chão with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Dona Gorf desajeitada no chão com o giz quebrado ao lado, três meninos rindo ao fundo."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Medium Close-Up, 50mm, Slow optical push-in on face. Continuous 6.0-second close shot at 24fps. 0-2s: Louis freezes in place, counting the towering pile of apples with darting eyes. 2-4s: Camera slowly pushes in on his face as cold realization sinks in; he swallows hard, hand touching his whistle. 4-6s: He turns toward Mrs. Gorf with an expression of stunned alarm, stable cinema optics, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar close de espanto de Louis: 02_visual_bible/characters/@louis/expressions.jpg"
   },
   {
-    "shot_id": "SC01_SH12",
+    "shot_id": "SC_01_SH12",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Wide Shot, 35mm, Slow pan da porta até a mesa. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow pan da porta até a mesa with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Carregar retrato frontal de Louis: 02_visual_bible/characters/@louis/P1_front.png"
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Two-Shot Dynamic, 35mm, Rapid kinetic hand-held style push-in. Continuous 6.0-second action take at 24fps. 0-2s: Todd slams his hands onto the desk, shouting defiantly at Mrs. Gorf. 2-4s: Kinetic camera push as dozens of apples shake and tumble off the desk, bouncing toward Mrs. Gorf's ankles. 4-6s: Mrs. Gorf stumbles backward, arms flailing, facial expression turning to outrage and fear, zero morphing, fluid cinematic physics.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar Todd confrontando Dona Gorf na mesa."
   },
   {
-    "shot_id": "SC01_SH13",
+    "shot_id": "SC_01_SH13",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Shot, 50mm, Slow push-in frontal. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow push-in frontal with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Mesa transbordando de maçãs vermelhas, Louis sorrindo na porta."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Extreme Close-Up Insert, 85mm, Low-angle tilted Dutch angle. Continuous 6.0-second macro shot at 24fps. 0-2s: Low-angle close-up of Mrs. Gorf snarling on the floorboards, apples bumping into her shoulders. 2-4s: Her pointed ears twitch violently; her teeth bare as she roars her threat. 4-6s: Her eyes dart toward the remaining children, preparing her ultimate transformation spell, intense dramatic tension, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar close de Dona Gorf com raiva no chão."
   },
   {
-    "shot_id": "SC01_SH14",
+    "shot_id": "SC_01_SH14",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Close-up, 50mm, Slow tilt-up de Dona Gorf. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow tilt-up de Dona Gorf with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Dona Gorf vestindo casaco de inverno, rindo sozinha diante da pilha de maçãs."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Medium Close-Up, 50mm, Steady optical push-in. Continuous 6.0-second shot at 24fps. 0-2s: Mrs. Gorf rises onto her knees, pointed left ear twitching sharply twice. 2-4s: Her right ear twitches in response; her long pointed tongue snakes out with unnatural mechanical precision. 4-6s: She locks her piercing gaze directly forward, releasing the curse, steady camera push, photorealistic cinema physics, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar frame de Dona Gorf mexendo as orelhas e botando a língua para fora."
   },
   {
-    "shot_id": "SC01_SH15",
+    "shot_id": "SC_01_SH15",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Action Macro Shot, 50mm, Câmera dinâmica rápida acompanhando o salto. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera dinâmica rápida acompanhando o salto with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Maçã vermelha no ar em câmera rápida acertando o rosto da professora surpresa."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Over-the-Shoulder Insert, 50mm, Fast whip-dolly into mirror glass. Continuous 6.0-second shot at 24fps. 0-2s: Jenny's small trembling hands swiftly raise the brass pocket mirror into the center of the frame. 2-4s: Camera pushes tight into the glass surface; the green flash hits the mirror, reflecting the curse backward. 4-6s: Blinding beam of reflected light strikes Mrs. Gorf off-screen, crisp metallic mirror texture, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar mão de Jenny levantando espelho de mão: 02_visual_bible/props/@espelho/P1_front.jpg"
   },
   {
-    "shot_id": "SC01_SH16",
+    "shot_id": "SC_01_SH16",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Low Angle Shot, 35mm, Câmera baixa tremida no chão. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera baixa tremida no chão with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Dona Gorf caída no chão com dezenas de maçãs caindo e quicando sobre ela."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Extreme Close-Up, 85mm, Slow continuous optical push-in. Continuous 6.0-second macro transformation at 24fps. 0-2s: Extreme close-up on Mrs. Gorf's horrified eyes as the emerald reflection flashes across her pupils. 2-4s: Her features compress and glow as her flesh rapidly transforms into polished crimson apple skin; a stem sprouts atop her head. 4-6s: A single large, delicious red apple lands heavily onto the floor with a clean thud, zero morphing, fluid cinematic physics.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar rosto de Dona Gorf se transformando em maçã vermelha."
   },
   {
-    "shot_id": "SC01_SH17",
+    "shot_id": "SC_01_SH17",
     "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Wide Shot, 35mm, Slow pull-back revelando as crianças. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow pull-back revelando as crianças with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Ondas de luz mágica dourada transformando maçãs de volta em crianças de carne e osso."
-  },
-  {
-    "shot_id": "SC01_SH18",
-    "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Close-up, 85mm, Push-in de suspense violento. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Push-in de suspense violento with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Dona Gorf em fúria absoluta com orelhas prestes a mexer e boca entreaberta."
-  },
-  {
-    "shot_id": "SC01_SH19",
-    "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Close-up, 50mm, Whip pan rápido no reflexo do espelho. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Whip pan rápido no reflexo do espelho with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Jenny erguendo espelho oval refletindo os olhos arregalados da professora."
-  },
-  {
-    "shot_id": "SC01_SH20",
-    "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Macro Insert, 100mm, Câmera baixa fixa no chão. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera baixa fixa no chão with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Vestido escuro caído vazio no chão com uma maçã vermelha rolando para fora."
-  },
-  {
-    "shot_id": "SC01_SH21",
-    "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Shot, 50mm, Slow tracking com Louis entrando. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow tracking com Louis entrando with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Louis entrando sorrindo, alunos em círculo silencioso olhando para a maçã no chão."
-  },
-  {
-    "shot_id": "SC01_SH22",
-    "target_engine": "veo_3.1",
-    "duration_s": 6.8,
-    "prompt": "Maintain subject. Medium Close-up Clímax, 50mm, Push-in dramático de comédia ácida. Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Push-in dramático de comédia ácida with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
-    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
-    "reference_image": "Louis lustrando a maçã na camisa xadrez e levando-a à boca para morder."
+    "duration_s": 6.0,
+    "prompt": "Maintain subject. Wide Establishing Shot, 35mm, Slow optical push-in with warm sunlight. Continuous 6.0-second wide shot at 24fps. 0-2s: Louis strolls up to the desk, spotting the shiny red apple sitting all by itself. 2-4s: He picks it up, inspects it admiringly, and takes a loud, crisp, juicy bite with a satisfied grin. 4-6s: Camera slowly pushes in as golden sunlight fills the classroom, children cheering softly off-screen, natural 24fps motion blur, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, distorted limbs",
+    "reference_image": "Carregar Louis pegando a maçã na mesa: 02_visual_bible/characters/@louis/P1_front.jpg"
   }
 ]

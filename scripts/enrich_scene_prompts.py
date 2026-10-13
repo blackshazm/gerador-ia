@@ -1,0 +1,406 @@
+"""
+Script de Enriquecimento de Prompts Cinematográficos — Tríade Studio
+Aplica a Bíblia Visual em todos os planos da cena SC_01, gerando:
+- Lista detalhada de personagens em cena com DNA físico e figurino
+- Cenário específico e iluminação volumétrica
+- Props / Objetos em jogo
+- Prompt de Imagem (Start Frame FLUX/Midjourney) com câmera, lente e visual completo
+- Prompt de Vídeo (6s Kling/Runway) com dinâmica temporal em 3 atos (0-2s, 2-4s, 4-6s)
+- Sliders de câmera do Kling AI
+"""
+import json
+import re
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+SCENES_DIR = BASE_DIR / "projects" / "wayside_school" / "03_scenes"
+MANIFEST_PATH = BASE_DIR / "projects" / "wayside_school" / "02_visual_bible" / "manifest.json"
+
+# Catálogo canônico da Bíblia Visual
+BIBLE_CHARS = {
+    "@dona_gorf": {
+        "tag": "@dona_gorf",
+        "name": "Dona Gorf (Mrs. Gorf)",
+        "physical_description": "Mulher de 55 anos, porte severo e austero, orelhas pontudas distintivas, olhar penetrante e malévolo, coque alto volumoso com grampos de madeira, vestido vitoriano escuro de gola alta com broche preto.",
+        "prompt_dna": "Mrs. Gorf (@dona_gorf: austere 55-year-old schoolteacher, distinctive pointed ears, sharp piercing cold eyes, tall voluminous hair bun with wooden sticks, dark high-collar Victorian wool tweed dress with black cameo brooch)"
+    },
+    "@joe": {
+        "tag": "@joe",
+        "name": "Joe",
+        "physical_description": "Menino de 9 anos, cabelos castanhos volumosos e encaracolados, sardas nas bochechas, olhar assustado e ingênuo, colete de lã e camisa de botão antiga.",
+        "prompt_dna": "young 9-year-old schoolboy Joe (@joe: messy voluminous curly brown hair, freckles across cheeks, frightened timid wide eyes, wool knit vest over vintage collared shirt)"
+    },
+    "@john": {
+        "tag": "@john",
+        "name": "John",
+        "physical_description": "Menino de 9 anos, óculos redondos de arame vintage, cabelo castanho bem penteado de lado, camisa bege de gola abotoada, postura tensa e nervosa.",
+        "prompt_dna": "young schoolboy John (@john: round vintage wire-rim glasses, neat side-parted brown hair, beige button-up shirt, anxious stiff posture)"
+    },
+    "@todd": {
+        "tag": "@todd",
+        "name": "Todd",
+        "physical_description": "Menino de 8 anos, expressão rebelde e indignada, cabelos castanhos curtos despenteados, camisa de botão com mangas arregaçadas.",
+        "prompt_dna": "young 8-year-old schoolboy Todd (@todd: short messy brown hair, defiant indignant face, rolled-up sleeve vintage collared shirt)"
+    },
+    "@stephen": {
+        "tag": "@stephen",
+        "name": "Stephen",
+        "physical_description": "Menino de 8 anos, rosto pálido e aterrorizado, olhos marejados, segurando as bordas da carteira escolar com dedos brancos.",
+        "prompt_dna": "young schoolboy Stephen (@stephen: pale terrified face, tear-streaked cheeks, clutching wooden desk with white knuckles)"
+    },
+    "@kathy": {
+        "tag": "@kathy",
+        "name": "Kathy",
+        "physical_description": "Menina de 8 anos, tranças loiras com laços de fita, vestido escolar vintage xadrez, passos tímidos e cabeça baixa.",
+        "prompt_dna": "young 8-year-old schoolgirl Kathy (@kathy: blonde braided pigtails with ribbon ties, vintage plaid school pinafore dress, timid anxious posture)"
+    },
+    "@paul": {
+        "tag": "@paul",
+        "name": "Paul",
+        "physical_description": "Menino de 8 anos sentado na carteira da frente, tranças compridas incomuns nas costas, expressão apreensiva.",
+        "prompt_dna": "young schoolboy Paul (@paul: vintage wool trousers, suspenders, unique long pigtails hanging behind his desk)"
+    },
+    "@nancy": {
+        "tag": "@nancy",
+        "name": "Nancy",
+        "physical_description": "Menina de 8 anos, vestido escolar azul marinho com colarinho branco, boca aberta em choque.",
+        "prompt_dna": "young schoolgirl Nancy (@nancy: navy blue school dress with Peter Pan collar, hands raised in startled gasp)"
+    },
+    "@terrence": {
+        "tag": "@terrence",
+        "name": "Terrence",
+        "physical_description": "Menino travesso de 9 anos, casaco marrom puído, caindo da cadeira em pânico.",
+        "prompt_dna": "young schoolboy Terrence (@terrence: worn brown coat, slipping off his wooden chair in sudden panic)"
+    },
+    "@maurecia": {
+        "tag": "@maurecia",
+        "name": "Maurecia",
+        "physical_description": "Menina de 9 anos de patins vintage nos pés, saia plissada azul e meias até o joelho, correndo desesperada para a porta.",
+        "prompt_dna": "young schoolgirl Maurecia (@maurecia: energetic girl wearing vintage four-wheel roller skates, blue pleated skirt, knee-high socks, sprinting desperately)"
+    },
+    "@erics": {
+        "tag": "@erics",
+        "name": "Os Três Erics (Fry, Bacon, Ovens)",
+        "physical_description": "Três meninos parecidos sentados lado a lado no fundo da sala, rindo de deboche antes de serem atingidos pelo feitiço.",
+        "prompt_dna": "The three Erics (@erics: trio of young schoolboys in matching school uniforms, pointing and laughing on back-row desks)"
+    },
+    "@louis": {
+        "tag": "@louis",
+        "name": "Louis (Professor do Pátio)",
+        "physical_description": "Homem amigável de 30 anos, jaqueta de veludo cotelê com cotoveleiras, apito prateado pendurado no peito, expressão perplexa.",
+        "prompt_dna": "Louis the yard teacher (@louis: friendly 30-year-old man, corduroy jacket, silver whistle around neck, warm puzzled expression)"
+    },
+    "@jenny": {
+        "tag": "@jenny",
+        "name": "Jenny",
+        "physical_description": "Menina corajosa de 9 anos, cabelos escuros em maria-chiquinha, segurando com firmeza um espelho de mão com moldura de latão.",
+        "prompt_dna": "courageous 9-year-old schoolgirl Jenny (@jenny: dark pigtails, determined sharp eyes, holding up an ornate vintage brass pocket mirror at eye level)"
+    }
+}
+
+# Dados dos 17 planos enriquecidos
+ENRICHED_SHOTS = [
+    {
+        "shot_id": "SC_01_SH01",
+        "shot_type": "Wide Establishing Shot",
+        "lens_mm": 35,
+        "camera_movement": "Slow 24fps optical push-in frontal",
+        "eyeline_match": "screen_center",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Sala de aula do 30º andar da Escola Wayside, janelas altas de guilhotina com vista para as nuvens, luz fria de fim de tarde em fachos volumétricos com partículas de poeira suspensas, lousa vintage escura e carteiras antigas de madeira.",
+        "props_in_shot": ["@giz_lousa"],
+        "action_pt": "Plano geral da sala de aula no trigésimo andar. Dona Gorf fica ereta atrás de sua mesa maciça, encarando a turma em silêncio absoluto. A luz fria da tarde entra pelas janelas altas, destacando sua silhueta austera e suas orelhas pontudas enquanto adverte as crianças.",
+        "narration": "Dona Gorf tinha uma língua comprida e orelhas pontudas. Ela era a professora mais malvada de toda a Escola Wayside, no trigésimo andar.",
+        "image_prompt_en": "Cinematic wide establishing shot, 35mm Arri Master Prime lens, f/2.0 aperture. Mrs. Gorf (@dona_gorf: austere 55-year-old schoolteacher, distinctive pointed ears, sharp piercing cold eyes, tall voluminous hair bun with wooden sticks, dark high-collar Victorian wool tweed dress with black cameo brooch) stands rigidly behind her oak teacher desk before a massive dark blackboard. Cold late-afternoon volumetric light beams cutting through tall 30th-floor sash windows, floating dust motes, empty wooden student desks in foreground, authentic 35mm film grain, 8k resolution --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second cinematic wide shot at 24fps. 0-2s: Mrs. Gorf stands completely motionless behind her desk, harsh window light carving her severe silhouette as dust particles drift in the air. 2-4s: Slow optical push-in camera movement as she subtly raises her chin and casts a sharp, piercing cold gaze across the classroom desks. 4-6s: Tension holds, steady subtle chest breathing, natural 24fps motion blur, zero morphing, photorealistic cinema.",
+        "kling_camera_controls": {"zoom": 1.5, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar retrato frontal canônico: 02_visual_bible/characters/@dona_gorf/P1_front.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH02",
+        "shot_type": "Medium Two-Shot",
+        "lens_mm": 50,
+        "camera_movement": "Subtle lateral drift with slow push-in",
+        "eyeline_match": "screen_right",
+        "characters_present": [BIBLE_CHARS["@joe"], BIBLE_CHARS["@john"]],
+        "scene_environment": "Carteiras escolares de carvalho emparelhadas, luz diagonal de janela iluminando folhas de prova de matemática pautadas e lápis amarelos.",
+        "props_in_shot": ["@caderno_prova", "@lapis_amarelo"],
+        "action_pt": "Joe olha desesperado para o papel de John na carteira ao lado, com suor na testa e lábios trêmulos. Ele inclina o tronco em culpa enquanto copia os números. John percebe e arregala os olhos de pavor.",
+        "narration": "Joe não sabia somar. Ele não sabia nem contar. Mas sabia que, se errasse a conta, viraria maçã. Então copiou da prova de John.",
+        "image_prompt_en": "Cinematic medium two-shot, 50mm Master Prime, f/2.2. Young schoolboy Joe (@joe: messy curly brown hair, freckles, timid frightened eyes, wool knit vest) desperately peeking sideways over his wooden desk, clutching a yellow pencil with trembling fingers. Beside him, schoolboy John (@john: round wire-rim glasses, neat parted hair, beige shirt) freezes in panic, staring sideways. Warm desk surface texture, shallow depth of field, 35mm film still, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second medium shot at 24fps. 0-2s: Joe nervously clutches his pencil, eyes darting sideways at John's test paper. 2-4s: Slow subtle camera drift as Joe stretches his neck and hastily scribbles a copied number, while John turns his head in sudden alarm. 4-6s: Both boys freeze, trembling with guilty dread, authentic human micro-movements, stable cinematic physics, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.0, "horizontal": -0.8, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar imagem frontal de Joe: 02_visual_bible/characters/@joe/P1_front.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH03",
+        "shot_type": "Close-Up on Mrs. Gorf",
+        "lens_mm": 85,
+        "camera_movement": "Slow low-angle push-in",
+        "eyeline_match": "screen_left",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Fundo da sala de aula desfocado, luz direcional dura destacando o contorno das orelhas pontudas e o semblante malévolo.",
+        "props_in_shot": [],
+        "action_pt": "Dona Gorf para atrás da carteira de Joe. Seus olhos se estreitam com fúria vingativa. Sua orelha direita treme convulsivamente, seguida pela esquerda, e sua língua pontuda projeta-se para fora com estalo no ar.",
+        "narration": "Dona Gorf pegou Joe colando. Ela mexeu a orelha direita, depois a esquerda, botou a língua para fora... e transformou Joe numa maçã!",
+        "image_prompt_en": "Cinematic close-up portrait, 85mm portrait prime, f/1.8. Mrs. Gorf (@dona_gorf: austere 55-year-old woman, prominent pointed ears in sharp focus, sinister cold eyes, tall dark hair bun, high-collar tweed dress) leaning forward with an eerie menacing expression, tongue beginning to emerge past thin lips. Dramatic chiaroscuro lighting, skin pore detail, shallow depth of field, 35mm film grain, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second macro close-up at 24fps. 0-2s: Extreme focus on Mrs. Gorf's sinister face; her pointed right ear twitches twice mechanically. 2-4s: Her left ear twitches, eyes widening with dark supernatural delight as her long pointed tongue extends out. 4-6s: Camera slowly pushes in, dramatic optical tension, crisp skin texture, clean fluid motion blur, zero morphing.",
+        "kling_camera_controls": {"zoom": 2.0, "horizontal": 0.0, "vertical": 0.0, "tilt": -1.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar close de Dona Gorf do Plano 01 ou modelsheet de expressões."
+    },
+    {
+        "shot_id": "SC_01_SH04",
+        "shot_type": "Wide Reaction Shot",
+        "lens_mm": 35,
+        "camera_movement": "Slow tracking crane shot",
+        "eyeline_match": "screen_center",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"], BIBLE_CHARS["@stephen"]],
+        "scene_environment": "Sala de aula em pânico paralisado, carteiras onde estavam os meninos agora ocupadas por maçãs vermelhas reluzentes sobre a madeira.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "A classe inteira fica paralisada de terror. Três maçãs vermelhas brilhantes repousam sobre as carteiras de madeira vazias. Stephen soluça silenciosamente, mãos brancas de pavor, enquanto Dona Gorf avança calmamente pelo corredor.",
+        "narration": "Em seguida, ela transformou John em maçã também, por ter deixado Joe colar! E Todd virou maçã por ter reclamado!",
+        "image_prompt_en": "Cinematic wide reaction shot, 35mm lens, f/2.2. Three glossy polished red apples resting on empty vintage wooden school desks where children once sat. In the adjacent row, young boy Stephen (@stephen: pale terrified face, tear-streaked cheeks) trembling in sheer horror. In background, Mrs. Gorf (@dona_gorf) strides deliberately down the classroom aisle. Atmospheric light shafts, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Focus on the three red apples resting on empty desks, faint emerald smoke dissipating. 2-4s: Camera tracks backward revealing terrified children frozen in their seats, Stephen sobbing silently. 4-6s: Mrs. Gorf steps into frame from behind, shadow stretching across the floorboards, stable cinematic camera, zero morphing.",
+        "kling_camera_controls": {"zoom": -1.0, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar foto da maçã sobre a mesa: 02_visual_bible/props/@maca_vermelha/P1_front.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH05",
+        "shot_type": "Medium Shot",
+        "lens_mm": 50,
+        "camera_movement": "Subtle dolly forward",
+        "eyeline_match": "screen_right",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Mesa da professora com uma fileira crescente de maçãs vermelhas alinhadas em frente à lousa verde.",
+        "props_in_shot": ["@maca_vermelha", "@giz_lousa"],
+        "action_pt": "Dona Gorf alinha as maçãs cuidadosamente no parapeito de sua mesa, admirando seu troféu com um sorriso gélido. Ela se vira devagar, examinando os alunos restantes como um predador.",
+        "narration": "E assim, um a um, as crianças que erravam ou conversavam iam virando deliciosas maçãs vermelhas.",
+        "image_prompt_en": "Cinematic medium shot, 50mm lens, f/2.0. Mrs. Gorf (@dona_gorf: austere 55yo woman, pointed ears, tall hair bun, dark Victorian dress) standing behind her desk, meticulously lining up shiny red apples with green leaves. Cold window sunlight reflecting on polished fruit skin, chalk dust floating in the background, authentic 35mm texture, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second shot at 24fps. 0-2s: Mrs. Gorf's long bony fingers delicately place another apple into a neat row on her desk. 2-4s: She slowly lifts her severe face, lips curling into an arrogant smug smile. 4-6s: Camera holds as her cold eyes scan the room, dust motes drifting in the beam of light, natural cinematic motion, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.2, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar último frame do Plano 04 ou close da mesa com maçãs."
+    },
+    {
+        "shot_id": "SC_01_SH06",
+        "shot_type": "Medium Close-Up",
+        "lens_mm": 50,
+        "camera_movement": "Slow tracking shot from door",
+        "eyeline_match": "screen_left",
+        "characters_present": [BIBLE_CHARS["@kathy"], BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Porta de entrada da sala do 30º andar, feixe de luz dourada do corredor iluminando a menina atrasada.",
+        "props_in_shot": [],
+        "action_pt": "No dia seguinte, Kathy entra pela porta, olhando para baixo com ansiedade. Dona Gorf vira lentamente a cabeça, olhos fixos nela com brilho malévolo. A orelha direita da professora já começa a tremer.",
+        "narration": "No dia seguinte, Kathy chegou atrasada à escola. Mal passou da porta, Dona Gorf já começou a mexer as orelhas.",
+        "image_prompt_en": "Cinematic medium close-up, 50mm Master Prime, f/2.0. Young schoolgirl Kathy (@kathy: blonde braided pigtails with ribbons, vintage plaid dress) stepping timidly through the classroom doorway, head lowered in anxiety. In foreground, dark silhouette of Mrs. Gorf's pointed ear twitches ominously. Warm hallway light contrasting cold classroom shadows, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second shot at 24fps. 0-2s: Kathy pauses in doorway, biting her lip nervously. 2-4s: Camera dollies slightly inward as Mrs. Gorf turns her head into frame, pointed ears twitching rapidly. 4-6s: Kathy gasps as a flash of green light flickers, smooth cinematic physics, authentic 24fps film motion, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.5, "horizontal": 0.5, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar modelo de Kathy entrando na porta: 02_visual_bible/locations/sala_30_andar.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH07",
+        "shot_type": "Over-the-Shoulder Sequence",
+        "lens_mm": 50,
+        "camera_movement": "Rapid rhythmic whip-pan",
+        "eyeline_match": "screen_right",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"], BIBLE_CHARS["@paul"], BIBLE_CHARS["@nancy"]],
+        "scene_environment": "Sala de aula em ritmo acelerado de feitiço, flashes esmeralda suaves estalando sobre as carteiras.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "Sequência rápida de transformações: Paul espirra e vira maçã. Nancy diz 'Saúde!' e vira maçã antes de fechar a boca. Terrence escorrega da cadeira e vira maçã no ar. Dona Gorf move as orelhas em ritmo frenético.",
+        "narration": "Paul espirrou: virou maçã! Nancy disse 'Saúde!': virou maçã! Terrence caiu da cadeira: virou maçã!",
+        "image_prompt_en": "Cinematic over-the-shoulder shot, 50mm lens, f/2.2. Over Mrs. Gorf's severe dark shoulder, young schoolboy Paul (@paul) in mid-sneeze and Nancy (@nancy) with open mouth, surrounded by bursting emerald sparks as their forms condense into shiny red apples. Dynamic motion blur, dramatic vintage classroom atmosphere, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second sequence take at 24fps. 0-2s: Over Mrs. Gorf's shoulder, her ears twitch rhythmically as Paul sneezes and instantaneously pops into a bouncing red apple. 2-4s: Nancy screams 'Saúde!' and bursts into emerald smoke, dropping a glossy apple on the desk. 4-6s: Camera tracks along the row of fresh apples rolling to a halt, fluid cinematic action, zero morphing.",
+        "kling_camera_controls": {"zoom": 0.8, "horizontal": 1.5, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar cena do ombro da professora em direção aos alunos."
+    },
+    {
+        "shot_id": "SC_01_SH08",
+        "shot_type": "Tracking Shot to Insert",
+        "lens_mm": 35,
+        "camera_movement": "Low-angle fast tracking dolly",
+        "eyeline_match": "screen_left",
+        "characters_present": [BIBLE_CHARS["@maurecia"], BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Corredor da porta da sala de aula, piso de tábua corrida de madeira onde os patins deslizam com faíscas.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "Maurecia calça seus patins e dispara em disparada para o corredor. Quando seu pé esquerdo já alcança a saída, a orelha de Dona Gorf se mexe. No limiar da porta, Maurecia se transforma em maçã, rolando suavemente pelo chão.",
+        "narration": "Maurecia tentou fugir de patins! Estava quase no corredor... quando a língua estalou. E uma maçã saiu rolando pelo chão.",
+        "image_prompt_en": "Cinematic low-angle tracking shot, 35mm lens, f/2.0. Young schoolgirl Maurecia (@maurecia: blue pleated skirt, knee socks, four-wheel vintage roller skates) in full motion sprinting towards the open wooden classroom door. Emerald magical smoke engulfs her figure, condensing into a single polished red apple rolling on the polished oak floorboards, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second tracking shot at 24fps. 0-2s: Low-angle camera rushes alongside Maurecia skating desperately toward the doorway. 2-4s: A sudden emerald shimmer engulfs her mid-stride; her body instantly condenses into a heavy crimson apple hitting the floor. 4-6s: Camera settles close as the red apple rolls past the doorframe into the hallway, smooth film physics, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.0, "horizontal": -1.2, "vertical": -0.5, "tilt": 0.5, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar Maurecia correndo em direção à porta da sala de aula."
+    },
+    {
+        "shot_id": "SC_01_SH09",
+        "shot_type": "Group Tableau",
+        "lens_mm": 50,
+        "camera_movement": "Slow optical push-in",
+        "eyeline_match": "screen_center",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"], BIBLE_CHARS["@erics"]],
+        "scene_environment": "Mesa da professora abarrotada com doze maçãs vermelhas em fila piramidal, luz de abajur antigo misturada com poeira dourada.",
+        "props_in_shot": ["@maca_vermelha", "@giz_lousa"],
+        "action_pt": "Dona Gorf coloca a maçã de Maurecia ao lado das outras onze na mesa: uma fileira perfeita de doze frutas. Os três Erics riem apontando no fundo da sala. Dona Gorf se vira, pisa num giz, e no tropeço transforma os três de uma vez só.",
+        "narration": "Dona Gorf recolheu a maçã e a colocou na mesa: já eram doze maçãs! Os três Erics riram... e viraram três maçãs também!",
+        "image_prompt_en": "Cinematic group tableau, 50mm Master Prime, f/2.2. A tall pyramid of twelve gleaming crimson apples on Mrs. Gorf's wooden teacher desk. In background, the three Erics (@erics: young boys in matching school attire) mid-laughter, dissolving into shimmering emerald mist. Mrs. Gorf (@dona_gorf) looking back with cruel triumph. Warm tungsten backlight, 35mm grain, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second shot at 24fps. 0-2s: Mrs. Gorf stacks the twelfth apple onto the growing pile on her desk. 2-4s: Hearing laughter, she pivots sharply; the three boys in the back row instantly transform into three bouncing red apples. 4-6s: Complete dead silence falls over the classroom as dust motes float through the light, zero morphing, photorealistic cinema.",
+        "kling_camera_controls": {"zoom": 1.0, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar foto da pirâmide de maçãs sobre a mesa da professora."
+    },
+    {
+        "shot_id": "SC_01_SH10",
+        "shot_type": "Wide Establishing Shot",
+        "lens_mm": 35,
+        "camera_movement": "Slow steady tracking with actor",
+        "eyeline_match": "screen_right",
+        "characters_present": [BIBLE_CHARS["@louis"], BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Sala de aula silenciosa e vazia, luz dourada de entardecer nas janelas altas, mesa cheia de frutas reluzentes.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "Louis, o professor do pátio, entra na sala com passos hesitantes. Ele olha ao redor com curiosidade e preocupação, notando as doze maçãs sobre a mesa e a quase total ausência de crianças na sala.",
+        "narration": "Louis, o professor do recreio, entrou na sala e estranhou: — Onde estão os alunos, Dona Gorf? — Foram embora mais cedo — mentiu ela.",
+        "image_prompt_en": "Cinematic wide shot, 35mm lens, f/2.0. Louis the yard teacher (@louis: friendly 30-year-old man, corduroy jacket, silver whistle on chest) stepping cautiously through the classroom door, gazing in bewilderment at a classroom full of empty desks and a desk piled with shiny red apples. Soft late-afternoon golden hour lighting, long shadows across oak floor, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second take at 24fps. 0-2s: Louis walks into the frame, scratching his head and looking around at the vacant desks. 2-4s: His eyes lock onto the dozen red apples on Mrs. Gorf's desk; he knits his brows in confusion. 4-6s: Mrs. Gorf smiles rigidly from behind her desk, holding a piece of chalk, natural 24fps motion blur, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.2, "horizontal": 0.8, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar modelo de Louis entrando na sala: 02_visual_bible/characters/@louis/P1_front.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH11",
+        "shot_type": "Medium Close-Up",
+        "lens_mm": 50,
+        "camera_movement": "Slow optical push-in on face",
+        "eyeline_match": "screen_center",
+        "characters_present": [BIBLE_CHARS["@louis"]],
+        "scene_environment": "Close em Louis com o reflexo de vinte e quatro maçãs brilhando em seus olhos, luz fria e tensa.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "No dia seguinte, Louis retorna à sala do 30º andar. Seus olhos se arregalam de espanto ao ver agora vinte e quatro maçãs empilhadas sobre a mesa e apenas três crianças vivas encolhidas no canto.",
+        "narration": "No dia seguinte, Louis voltou: agora havia vinte e quatro maçãs! E restavam apenas três crianças apavoradas.",
+        "image_prompt_en": "Cinematic medium close-up, 50mm Master Prime, f/2.0. Louis (@louis: corduroy jacket, silver whistle, brown hair) staring in utter disbelief, jaw slightly dropped, eyes wide with mounting dread. In soft-focus foreground, twenty-four glistening crimson apples stacked high on the oak desk. Cool moody dramatic lighting, authentic film grain, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second close shot at 24fps. 0-2s: Louis freezes in place, counting the towering pile of apples with darting eyes. 2-4s: Camera slowly pushes in on his face as cold realization sinks in; he swallows hard, hand touching his whistle. 4-6s: He turns toward Mrs. Gorf with an expression of stunned alarm, stable cinema optics, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.8, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar close de espanto de Louis: 02_visual_bible/characters/@louis/expressions.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH12",
+        "shot_type": "Two-Shot Dynamic",
+        "lens_mm": 35,
+        "camera_movement": "Rapid kinetic hand-held style push-in",
+        "eyeline_match": "screen_left",
+        "characters_present": [BIBLE_CHARS["@todd"], BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Frente da sala de aula em caos; maçãs rolando pela mesa e pelo chão como pequenas esferas vivas.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "Todd, em fúria rebelde, pula sobre a mesa da professora e acerta um golpe direto no nariz adunco de Dona Gorf. As maçãs na mesa começam a tremer e rolar furiosamente contra as pernas da professora.",
+        "narration": "— Você não vai transformar mais ninguém! — gritou Todd. E as vinte e quatro maçãs começaram a rolar e atacar Dona Gorf!",
+        "image_prompt_en": "Cinematic dynamic two-shot, 35mm lens, f/2.2. Defiant young boy Todd (@todd: messy brown hair, rolled-up sleeves, intense fearless anger) lunging across the wooden desk, shouting furiously. Mrs. Gorf (@dona_gorf: pointed ears, hair bun coming undone) recoiling in shock, losing balance as dozens of red apples roll furiously across the desk, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second action take at 24fps. 0-2s: Todd slams his hands onto the desk, shouting defiantly at Mrs. Gorf. 2-4s: Kinetic camera push as dozens of apples shake and tumble off the desk, bouncing toward Mrs. Gorf's ankles. 4-6s: Mrs. Gorf stumbles backward, arms flailing, facial expression turning to outrage and fear, zero morphing, fluid cinematic physics.",
+        "kling_camera_controls": {"zoom": 1.5, "horizontal": -0.5, "vertical": 0.2, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar Todd confrontando Dona Gorf na mesa."
+    },
+    {
+        "shot_id": "SC_01_SH13",
+        "shot_type": "Extreme Close-Up Insert",
+        "lens_mm": 85,
+        "camera_movement": "Low-angle tilted Dutch angle",
+        "eyeline_match": "screen_right",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Chão de madeira da sala, Dona Gorf caída cercada por maçãs vermelhas que a empurram e bloqueiam seus movimentos.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "Dona Gorf, caída no chão cercada pelas maçãs rebeldes, levanta a cabeça com ódio incontrolável. Seus olhos se injetam de fúria e ela ameaça transformar todas as crianças em purê de maçã.",
+        "narration": "— Parem com isso! — berrou Dona Gorf caída no chão. — Eu vou transformar todos vocês em purê de maçã!",
+        "image_prompt_en": "Cinematic extreme close-up, 85mm macro lens, f/1.8, Dutch angle. Mrs. Gorf (@dona_gorf: disheveled hair bun, wooden sticks askew, pointed ears twitching wildly, feral enraged glare) propped on the wooden floor, surrounded by heavy red apples pressing against her dress. Red volumetric rim lighting, intense facial pore and sweat details, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second macro shot at 24fps. 0-2s: Low-angle close-up of Mrs. Gorf snarling on the floorboards, apples bumping into her shoulders. 2-4s: Her pointed ears twitch violently; her teeth bare as she roars her threat. 4-6s: Her eyes dart toward the remaining children, preparing her ultimate transformation spell, intense dramatic tension, zero morphing.",
+        "kling_camera_controls": {"zoom": 2.2, "horizontal": 0.0, "vertical": -0.5, "tilt": -2.0, "pan": 0.0, "roll": 1.0},
+        "start_frame_instruction": "Carregar close de Dona Gorf com raiva no chão."
+    },
+    {
+        "shot_id": "SC_01_SH14",
+        "shot_type": "Medium Close-Up",
+        "lens_mm": 50,
+        "camera_movement": "Steady optical push-in",
+        "eyeline_match": "screen_left",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Dona Gorf se reerguendo, sombras ameaçadoras preenchendo a sala com tom sobrenatural esmeralda.",
+        "props_in_shot": [],
+        "action_pt": "Dona Gorf começa o feitiço definitivo: ela mexe a orelha esquerda, depois a direita com precisão diabólica, e projeta sua língua pontuda pronta para aniquilar a turma inteira.",
+        "narration": "Ela mexeu a orelha esquerda... mexeu a orelha direita... e botou a língua para fora!",
+        "image_prompt_en": "Cinematic medium close-up, 50mm Master Prime, f/2.0. Mrs. Gorf (@dona_gorf: pointed ears erect and twitching, dark Victorian dress, eyes glowing with eerie emerald menace) projecting her long pointed tongue past tight lips. Volumetric mystical green light cast from below, shallow depth of field, dramatic shadows, 35mm film grain, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second shot at 24fps. 0-2s: Mrs. Gorf rises onto her knees, pointed left ear twitching sharply twice. 2-4s: Her right ear twitches in response; her long pointed tongue snakes out with unnatural mechanical precision. 4-6s: She locks her piercing gaze directly forward, releasing the curse, steady camera push, photorealistic cinema physics, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.8, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar frame de Dona Gorf mexendo as orelhas e botando a língua para fora."
+    },
+    {
+        "shot_id": "SC_01_SH15",
+        "shot_type": "Over-the-Shoulder Insert",
+        "lens_mm": 50,
+        "camera_movement": "Fast whip-dolly into mirror glass",
+        "eyeline_match": "screen_right",
+        "characters_present": [BIBLE_CHARS["@jenny"], BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Carteira da frente, mão firme de Jenny levantando um espelho de mão de latão brilhante bem na linha de visão do feitiço.",
+        "props_in_shot": ["@espelho_bolsa"],
+        "action_pt": "Jenny dá um passo à frente com coragem indomável e ergue um pequeno espelho de mão de latão na altura dos olhos. A superfície de vidro reflete o feitiço verde diretamente de volta para o rosto de Dona Gorf.",
+        "narration": "Mas Jenny agiu rápido! Ela puxou um espelho da bolsa e colocou bem na frente de Dona Gorf!",
+        "image_prompt_en": "Cinematic over-the-shoulder insert, 50mm lens, f/1.8. Jenny (@jenny: dark braided pigtails, courageous determined eyes) thrusting a vintage oval brass pocket mirror (@espelho_bolsa) into the center of the frame. In the flawless mirror reflection, Mrs. Gorf's twisted face and protruding tongue are sharply visible, catching the blinding emerald magical glare, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second shot at 24fps. 0-2s: Jenny's small trembling hands swiftly raise the brass pocket mirror into the center of the frame. 2-4s: Camera pushes tight into the glass surface; the green flash hits the mirror, reflecting the curse backward. 4-6s: Blinding beam of reflected light strikes Mrs. Gorf off-screen, crisp metallic mirror texture, zero morphing.",
+        "kling_camera_controls": {"zoom": 2.0, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar mão de Jenny levantando espelho de mão: 02_visual_bible/props/@espelho/P1_front.jpg"
+    },
+    {
+        "shot_id": "SC_01_SH16",
+        "shot_type": "Extreme Close-Up",
+        "lens_mm": 85,
+        "camera_movement": "Slow continuous optical push-in",
+        "eyeline_match": "screen_center",
+        "characters_present": [BIBLE_CHARS["@dona_gorf"]],
+        "scene_environment": "Rosto de Dona Gorf sob efeito do feitiço refletido, pele se encerando e virando casca de maçã vermelha brilhante.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "O feitiço atinge Dona Gorf em cheio através do reflexo. Seus olhos se arregalam em choque absoluto. Sua pele enruga e se transforma em casca encerada vermelha, um cabinho brota no topo de sua cabeça... e ela vira uma linda maçã vermelha!",
+        "narration": "O feitiço ricocheteou no vidro! Dona Gorf viu seu próprio reflexo... e se transformou a si mesma em uma grande maçã vermelha!",
+        "image_prompt_en": "Cinematic extreme close-up transformation, 85mm macro, f/2.0. Mrs. Gorf's severe face warping in supernatural shock, skin rippling and turning into waxy crimson apple peel. A rustic brown fruit stem with a tiny green leaf sprouts from the top of her dark hair bun. Intense volumetric backlight, photorealistic transformation physics, 35mm film still, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second macro transformation at 24fps. 0-2s: Extreme close-up on Mrs. Gorf's horrified eyes as the emerald reflection flashes across her pupils. 2-4s: Her features compress and glow as her flesh rapidly transforms into polished crimson apple skin; a stem sprouts atop her head. 4-6s: A single large, delicious red apple lands heavily onto the floor with a clean thud, zero morphing, fluid cinematic physics.",
+        "kling_camera_controls": {"zoom": 2.5, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar rosto de Dona Gorf se transformando em maçã vermelha."
+    },
+    {
+        "shot_id": "SC_01_SH17",
+        "shot_type": "Wide Establishing Shot",
+        "lens_mm": 35,
+        "camera_movement": "Slow optical push-in with warm sunlight",
+        "eyeline_match": "screen_center",
+        "characters_present": [BIBLE_CHARS["@louis"]],
+        "scene_environment": "Sala de aula inundada por luz dourada de sol, atmosfera de alívio e comédia, mesa da professora com uma maçã apetitosa solitária.",
+        "props_in_shot": ["@maca_vermelha"],
+        "action_pt": "Louis entra na sala de aula assobiando com seu apito de recreio. Ele vê a grande maçã vermelha sobre a mesa da professora, pega a fruta com gosto, dá uma mordida suculenta e elogia: 'Hum! Nunca comi uma professora tão gostosa!'",
+        "narration": "Louis entrou na sala, viu aquela maçã deliciosa e deu uma grande mordida! E assim acabou o reinado da malvada Dona Gorf.",
+        "image_prompt_en": "Cinematic wide shot, 35mm Master Prime, f/2.0. Louis the yard teacher (@louis: corduroy jacket, silver whistle) standing by the teacher desk, smiling warmly as he holds a large polished red apple with a bite taken out. Warm afternoon sunlight pouring through tall 30th-floor windows, classroom bathed in golden relieved light, authentic 35mm film grain, 8k --ar 16:9",
+        "video_prompt_en": "Continuous 6.0-second wide shot at 24fps. 0-2s: Louis strolls up to the desk, spotting the shiny red apple sitting all by itself. 2-4s: He picks it up, inspects it admiringly, and takes a loud, crisp, juicy bite with a satisfied grin. 4-6s: Camera slowly pushes in as golden sunlight fills the classroom, children cheering softly off-screen, natural 24fps motion blur, zero morphing.",
+        "kling_camera_controls": {"zoom": 1.2, "horizontal": 0.0, "vertical": 0.0, "tilt": 0.0, "pan": 0.0, "roll": 0.0},
+        "start_frame_instruction": "Carregar Louis pegando a maçã na mesa: 02_visual_bible/characters/@louis/P1_front.jpg"
+    }
+]
+
+def enrich_scene_01():
+    scene_file = SCENES_DIR / "SC_01.json"
+    if not scene_file.exists():
+        print(f"Erro: Cena {scene_file} não encontrada.")
+        return False
+        
+    with open(scene_file, "r", encoding="utf-8") as f:
+        scene_data = json.load(f)
+        
+    scene_data["scene_id"] = "SC_01"
+    scene_data["title"] = "Capítulo 1 — Dona Gorf e o Feitiço das Maçãs"
+    scene_data["location"] = "Sala de aula do 30º andar da Escola Wayside"
+    scene_data["characters"] = [
+        "@dona_gorf", "@joe", "@john", "@todd", "@stephen", 
+        "@kathy", "@paul", "@nancy", "@terrence", "@maurecia", 
+        "@erics", "@louis", "@jenny"
+    ]
+    scene_data["props"] = ["@maca_vermelha", "@giz_lousa", "@espelho_bolsa", "@caderno_prova"]
+    scene_data["scene_rhythm"] = "Dramatic Suspense & Dark Comedy"
+    scene_data["audio_continuous_block"] = True
+    scene_data["beats"] = ENRICHED_SHOTS
+    
+    with open(scene_file, "w", encoding="utf-8") as f:
+        json.dump(scene_data, f, indent=2, ensure_ascii=False)
+        
+    print(f"[OK] SC_01.json enriquecido com sucesso com {len(ENRICHED_SHOTS)} planos ultra-detalhados!")
+    return True
+
+if __name__ == "__main__":
+    enrich_scene_01()
