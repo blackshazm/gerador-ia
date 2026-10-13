@@ -127,6 +127,61 @@
           </div>
         </header>
 
+        <!-- Cockpit de Direção & Filtros de Produção -->
+        <section class="scene-cockpit-bar" id="scene-cockpit-bar">
+          <div class="cockpit-top-row">
+            <div class="cockpit-metrics-summary">
+              <div class="metric-pill" id="metric-pill-audio">
+                <span class="metric-icon">🎙️</span>
+                <span class="metric-label">Locução:</span>
+                <strong id="metric-audio-count">0/0</strong>
+              </div>
+              <div class="metric-pill" id="metric-pill-image">
+                <span class="metric-icon">🖼️</span>
+                <span class="metric-label">Start Frames:</span>
+                <strong id="metric-image-count">0/0</strong>
+              </div>
+              <div class="metric-pill" id="metric-pill-video">
+                <span class="metric-icon">🎬</span>
+                <span class="metric-label">Vídeos 6s:</span>
+                <strong id="metric-video-count">0/0</strong>
+              </div>
+              <div class="metric-pill total-progress">
+                <span class="metric-label">Progresso da Cena:</span>
+                <strong id="metric-percent">0%</strong>
+              </div>
+            </div>
+
+            <div class="cockpit-actions">
+              <button class="btn btn-primary btn-preview-scene" onclick="openScenePreviewModal()">
+                <span>▶</span> Assistir Prévia da Cena
+              </button>
+            </div>
+          </div>
+
+          <!-- Barra Visual de Progresso -->
+          <div class="cockpit-progress-track">
+            <div class="cockpit-progress-fill" id="cockpit-progress-fill" style="width: 0%;"></div>
+          </div>
+
+          <!-- Filtros Rápidos de Status -->
+          <div class="cockpit-filters-row">
+            <span class="filters-label">Filtrar Planos:</span>
+            <button class="filter-chip active" data-filter="all" onclick="setShotsFilter('all', this)">
+              Todos (<span id="filter-count-all">0</span>)
+            </button>
+            <button class="filter-chip" data-filter="need_image" onclick="setShotsFilter('need_image', this)">
+              ⚠️ Falta Imagem (<span id="filter-count-need-image">0</span>)
+            </button>
+            <button class="filter-chip" data-filter="ready_video" onclick="setShotsFilter('ready_video', this)">
+              ⚡ Pronto p/ Vídeo (<span id="filter-count-ready-video">0</span>)
+            </button>
+            <button class="filter-chip" data-filter="completed" onclick="setShotsFilter('completed', this)">
+              ✓ Concluídos (<span id="filter-count-completed">0</span>)
+            </button>
+          </div>
+        </section>
+
         <!-- Grade de Micro-Beats / Planos Cinematográficos -->
         <section class="shots-container">
           <div class="section-header-row">
@@ -477,9 +532,40 @@
     </div>
   </div>
 
+  <!-- Modal de Pré-Visualização Contínua da Cena -->
+  <div id="scene-preview-modal" class="modal-overlay" style="display:none;" onclick="if(event.target===this) closeScenePreviewModal()">
+    <div class="preview-cinema-modal">
+      <div class="preview-cinema-header">
+        <div class="preview-shot-info">
+          <span class="preview-badge" id="preview-shot-badge">PLANO 01/04</span>
+          <h3 id="preview-shot-title">Ação do Plano</h3>
+        </div>
+        <button class="modal-close" onclick="closeScenePreviewModal()">✕</button>
+      </div>
+
+      <div class="preview-cinema-screen">
+        <div id="preview-media-container" class="preview-media-container">
+          <!-- Tag <video> ou <img> inserida dinamicamente -->
+        </div>
+        <div class="preview-subtitle-overlay" id="preview-subtitle-overlay">
+          <!-- Narração falada sendo exibida estilo legenda -->
+        </div>
+      </div>
+
+      <div class="preview-cinema-controls">
+        <button class="btn btn-secondary btn-sm" onclick="prevPreviewShot()">⏮ Anterior</button>
+        <button class="btn btn-primary" id="btn-preview-play-pause" onclick="togglePreviewPlayPause()">⏸ Pausar</button>
+        <button class="btn btn-secondary btn-sm" onclick="nextPreviewShot()">Próximo ⏭</button>
+        <div class="preview-timeline-indicator" id="preview-timeline-indicator">
+          Progresso da Cena: Plano 1 de 4
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Notificação Toast Flutuante -->
   <div id="toast" class="toast"></div>
 
-  <script src="app.js?v=4.0"></script>
+  <script src="app.js?v=5.0"></script>
 </body>
 </html>

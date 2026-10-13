@@ -204,12 +204,27 @@ function renderScene(scene) {
   });
 
   renderTimeline(beats, totalDur);
+  updateSceneCockpit(scene);
 }
 
 function createShotCard(beat, planNumber) {
   const card = document.createElement("div");
   card.className = "shot-card";
   card.id = `card-${beat.shot_id}`;
+
+  const hasAudio = Boolean(beat.audio_file || beat.audio_duration_s);
+  const hasImage = Boolean(beat.generated_image || (beat.actor_image && !beat.actor_image.includes("placeholder")));
+  const hasVideo = Boolean(beat.video_url);
+
+  let shotStatus = "need_image";
+  if (hasVideo) {
+    shotStatus = "completed";
+  } else if (hasImage) {
+    shotStatus = "ready_video";
+  } else {
+    shotStatus = "need_image";
+  }
+  card.dataset.status = shotStatus;
 
   const isLastFrame = (beat.start_frame_instruction || "").includes("ÚLTIMO FRAME");
 
@@ -320,10 +335,6 @@ function createShotCard(beat, planNumber) {
     </div>
   ` : '';
 
-  const hasAudio = Boolean(beat.audio_file || beat.audio_duration_s);
-  const hasImage = Boolean(beat.generated_image || (beat.actor_image && !beat.actor_image.includes("placeholder")));
-  const hasVideo = Boolean(beat.video_url);
-
   const stepperHtml = `
     <div class="shot-stepper">
       <span class="step-chip ${hasAudio ? 'step-done' : 'step-pending'}">
@@ -347,6 +358,28 @@ function createShotCard(beat, planNumber) {
     </div>
   `;
 
+  // Botão Inteligente de Próxima Ação
+  let nextActionHtml = '';
+  if (!hasImage) {
+    nextActionHtml = `
+      <button class="btn-next-action action-image" onclick="generateShotImage('${escapeForJs(beat.shot_id)}', '${escapeForJs(imagePrompt)}', this)">
+        <span>🎨</span> <strong>Próximo Passo:</strong> Gerar Start Frame com FLUX.1
+      </button>
+    `;
+  } else if (!hasVideo) {
+    nextActionHtml = `
+      <button class="btn-next-action action-video" onclick="generateShotVideo('${escapeForJs(beat.shot_id)}', this)">
+        <span>🎬</span> <strong>Próximo Passo:</strong> Animar Vídeo de 6s no Kling AI / Runway
+      </button>
+    `;
+  } else {
+    nextActionHtml = `
+      <button class="btn-next-action action-done" onclick="openScenePreviewModal()">
+        <span>✓</span> <strong>Plano Concluído:</strong> Vídeo 16:9 Pronto (Assistir na Prévia)
+      </button>
+    `;
+  }
+
   card.innerHTML = `
     <div class="shot-top-bar">
       <div class="shot-title-group">
@@ -363,6 +396,9 @@ function createShotCard(beat, planNumber) {
 
     <!-- Stepper Visual de 4 Passos -->
     ${stepperHtml}
+
+    <!-- Botão Guiado de Próxima Ação -->
+    ${nextActionHtml}
 
     <!-- Banner Cinematográfico 16:9 do Plano -->
     ${heroBannerHtml}
@@ -410,46 +446,58 @@ function createShotCard(beat, planNumber) {
       ` : ''}
     </div>
 
-    <!-- Bloco 3: Controles de Câmera Kling -->
-    <div class="shot-block">
-      <div class="block-header">
-        <div class="block-title">🎛️ 3. CONTROLES DE CÂMERA (SLIDERS NUMÉRICOS KLING AI)</div>
-      </div>
-      <div class="camera-sliders-grid">${slidersHtml}</div>
-    </div>
+    <!-- Gaveta Retrátil de Prompts Técnicos ("Modo Clean") -->
+    <div class="prompt-drawer">
+      <button class="prompt-drawer-toggle" onclick="togglePromptDrawer(this)">
+        <span style="display:flex; align-items:center; gap:8px;">
+          <span>🎛️</span>
+          <span>Ver Prompts Técnicos & Sliders (Kling AI / FLUX / Negativo)</span>
+        </span>
+        <span class="drawer-arrow">▼</span>
+      </button>
+      <div class="prompt-drawer-content" style="display:none;">
+        <!-- Bloco 3: Controles de Câmera Kling -->
+        <div class="shot-block" style="margin-bottom:0;">
+          <div class="block-header">
+            <div class="block-title">🎛️ 3. CONTROLES DE CÂMERA (SLIDERS NUMÉRICOS KLING AI)</div>
+          </div>
+          <div class="camera-sliders-grid">${slidersHtml}</div>
+        </div>
 
-    <!-- Bloco 4: Prompt de Imagem Estática (Start-Frame para FLUX / Midjourney) -->
-    <div class="shot-block">
-      <div class="block-header">
-        <div class="block-title" style="color:var(--gold-primary);">🖼️ 4. PROMPT DE IMAGEM ESTÁTICA (START FRAME - FLUX.1 / MIDJOURNEY / IMAGEN 3)</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn-copy btn-generate-img" style="background:linear-gradient(135deg, #10b981, #059669); font-weight:700;" onclick="generateShotImage('${escapeForJs(beat.shot_id)}', '${escapeForJs(imagePrompt)}', this)">🎨 Gerar FLUX</button>
-          <button class="btn-copy" style="border-color:rgba(245, 158, 11, 0.6); color:var(--gold-primary);" onclick="triggerShotUpload('${escapeForJs(beat.shot_id)}')">📁 Upload Imagem</button>
-          <button class="btn-copy" onclick="copyText('${escapeForJs(imagePrompt)}')">📋 Copiar Prompt</button>
+        <!-- Bloco 4: Prompt de Imagem Estática (Start-Frame para FLUX / Midjourney) -->
+        <div class="shot-block" style="margin-bottom:0;">
+          <div class="block-header">
+            <div class="block-title" style="color:var(--gold-primary);">🖼️ 4. PROMPT DE IMAGEM ESTÁTICA (START FRAME - FLUX.1 / MIDJOURNEY / IMAGEN 3)</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn-copy btn-generate-img" style="background:linear-gradient(135deg, #10b981, #059669); font-weight:700;" onclick="generateShotImage('${escapeForJs(beat.shot_id)}', '${escapeForJs(imagePrompt)}', this)">🎨 Gerar FLUX</button>
+              <button class="btn-copy" style="border-color:rgba(245, 158, 11, 0.6); color:var(--gold-primary);" onclick="triggerShotUpload('${escapeForJs(beat.shot_id)}')">📁 Upload Imagem</button>
+              <button class="btn-copy" onclick="copyText('${escapeForJs(imagePrompt)}')">📋 Copiar Prompt</button>
+            </div>
+          </div>
+          <div class="prompt-box image-prompt-box">${escapeHtml(imagePrompt)}</div>
+        </div>
+
+        <!-- Bloco 5: Prompt de Vídeo (Dinâmica Temporal de 6s para Kling / Runway / Veo) -->
+        <div class="shot-block" style="margin-bottom:0;">
+          <div class="block-header">
+            <div class="block-title" style="color:var(--cyan-accent);">🎬 5. PROMPT DE VÍDEO (DINÂMICA DE MOVIMENTO 6s - KLING / RUNWAY GEN-3 / VEO 2)</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn-copy" style="background:linear-gradient(135deg, #4f46e5, #4338ca); color:#fff; font-weight:700; border-color:#6366f1;" onclick="generateShotVideo('${escapeForJs(beat.shot_id)}', this)">🎬 Gerar Vídeo IA</button>
+              <button class="btn-copy" onclick="copyText('${escapeForJs(videoPrompt)}')">📋 Copiar Vídeo</button>
+            </div>
+          </div>
+          <div class="prompt-box video-prompt-box">${escapeHtml(videoPrompt)}</div>
+        </div>
+
+        <!-- Bloco 6: Prompt Negativo Cirúrgico -->
+        <div class="shot-block" style="margin-bottom:0;">
+          <div class="block-header">
+            <div class="block-title">🚫 6. PROMPT NEGATIVO CIRÚRGICO (ANTI-ARTEFATOS)</div>
+            <button class="btn-copy" onclick="copyText('${escapeForJs(negativePrompt)}')">📋 Copiar Negativo</button>
+          </div>
+          <div class="prompt-box negative-prompt-box">${escapeHtml(negativePrompt)}</div>
         </div>
       </div>
-      <div class="prompt-box image-prompt-box">${escapeHtml(imagePrompt)}</div>
-    </div>
-
-    <!-- Bloco 5: Prompt de Vídeo (Dinâmica Temporal de 6s para Kling / Runway / Veo) -->
-    <div class="shot-block">
-      <div class="block-header">
-        <div class="block-title" style="color:var(--cyan-accent);">🎬 5. PROMPT DE VÍDEO (DINÂMICA DE MOVIMENTO 6s - KLING / RUNWAY GEN-3 / VEO 2)</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn-copy" style="background:linear-gradient(135deg, #4f46e5, #4338ca); color:#fff; font-weight:700; border-color:#6366f1;" onclick="generateShotVideo('${escapeForJs(beat.shot_id)}', this)">🎬 Gerar Vídeo IA</button>
-          <button class="btn-copy" onclick="copyText('${escapeForJs(videoPrompt)}')">📋 Copiar Vídeo</button>
-        </div>
-      </div>
-      <div class="prompt-box video-prompt-box">${escapeHtml(videoPrompt)}</div>
-    </div>
-
-    <!-- Bloco 6: Prompt Negativo Cirúrgico -->
-    <div class="shot-block" style="margin-bottom:0;">
-      <div class="block-header">
-        <div class="block-title">🚫 6. PROMPT NEGATIVO CIRÚRGICO (ANTI-ARTEFATOS)</div>
-        <button class="btn-copy" onclick="copyText('${escapeForJs(negativePrompt)}')">📋 Copiar Negativo</button>
-      </div>
-      <div class="prompt-box negative-prompt-box">${escapeHtml(negativePrompt)}</div>
     </div>
   `;
 
@@ -485,6 +533,281 @@ function renderTimeline(beats, totalDuration) {
 
     track.appendChild(seg);
   });
+}
+
+// ==========================================
+// COCKPIT DE PRODUÇÃO, FILTROS & PREVIEW
+// ==========================================
+let currentFilter = 'all';
+
+function updateSceneCockpit(scene) {
+  const beats = scene.beats || [];
+  const total = beats.length;
+  if (total === 0) return;
+
+  let audioCount = 0;
+  let imageCount = 0;
+  let videoCount = 0;
+
+  beats.forEach(b => {
+    const hasAudio = Boolean(b.audio_file || b.audio_duration_s);
+    const hasImage = Boolean(b.generated_image || (b.actor_image && !b.actor_image.includes("placeholder")));
+    const hasVideo = Boolean(b.video_url);
+
+    if (hasAudio) audioCount++;
+    if (hasImage) imageCount++;
+    if (hasVideo) videoCount++;
+  });
+
+  const elAudio = document.getElementById("metric-audio-count");
+  if (elAudio) elAudio.textContent = `${audioCount}/${total}`;
+
+  const elImage = document.getElementById("metric-image-count");
+  if (elImage) elImage.textContent = `${imageCount}/${total}`;
+
+  const elVideo = document.getElementById("metric-video-count");
+  if (elVideo) elVideo.textContent = `${videoCount}/${total}`;
+
+  // Cálculo ponderado: Áudio 20%, Imagem 40%, Vídeo 40%
+  const audioWeight = (audioCount / total) * 20;
+  const imageWeight = (imageCount / total) * 40;
+  const videoWeight = (videoCount / total) * 40;
+  const totalPct = Math.round(audioWeight + imageWeight + videoWeight);
+
+  const elPct = document.getElementById("metric-percent");
+  if (elPct) elPct.textContent = `${totalPct}%`;
+
+  const elBar = document.getElementById("cockpit-progress-fill");
+  if (elBar) elBar.style.width = `${totalPct}%`;
+
+  // Contadores para os chips de filtro
+  const needImageCount = beats.filter(b => !(b.generated_image || (b.actor_image && !b.actor_image.includes("placeholder")))).length;
+  const readyVideoCount = beats.filter(b => (b.generated_image || (b.actor_image && !b.actor_image.includes("placeholder"))) && !b.video_url).length;
+  const completedCount = videoCount;
+
+  const fAll = document.getElementById("filter-count-all");
+  if (fAll) fAll.textContent = total;
+  const fNeedImg = document.getElementById("filter-count-need-image");
+  if (fNeedImg) fNeedImg.textContent = needImageCount;
+  const fReadyVid = document.getElementById("filter-count-ready-video");
+  if (fReadyVid) fReadyVid.textContent = readyVideoCount;
+  const fDone = document.getElementById("filter-count-completed");
+  if (fDone) fDone.textContent = completedCount;
+
+  applyCurrentFilter();
+}
+
+function setShotsFilter(filterType, btnEl) {
+  currentFilter = filterType;
+  document.querySelectorAll(".filter-chip").forEach(el => el.classList.remove("active"));
+  if (btnEl) {
+    btnEl.classList.add("active");
+  } else {
+    const target = document.querySelector(`.filter-chip[data-filter="${filterType}"]`);
+    if (target) target.classList.add("active");
+  }
+  applyCurrentFilter();
+}
+
+function applyCurrentFilter() {
+  const cards = document.querySelectorAll(".shot-card");
+  cards.forEach(card => {
+    const status = card.dataset.status;
+    if (currentFilter === "all") {
+      card.style.display = "block";
+    } else if (currentFilter === "need_image") {
+      card.style.display = status === "need_image" ? "block" : "none";
+    } else if (currentFilter === "ready_video") {
+      card.style.display = status === "ready_video" ? "block" : "none";
+    } else if (currentFilter === "completed") {
+      card.style.display = status === "completed" ? "block" : "none";
+    }
+  });
+}
+
+function togglePromptDrawer(btnEl) {
+  btnEl.classList.toggle("open");
+  const content = btnEl.nextElementSibling;
+  const arrow = btnEl.querySelector(".drawer-arrow");
+  if (content) {
+    if (content.style.display === "none" || !content.style.display) {
+      content.style.display = "flex";
+      if (arrow) arrow.textContent = "▲";
+    } else {
+      content.style.display = "none";
+      if (arrow) arrow.textContent = "▼";
+    }
+  }
+}
+
+// ==========================================
+// MOTOR DE PRÉ-VISUALIZAÇÃO CINEMATOGRÁFICA
+// ==========================================
+let previewCurrentIndex = 0;
+let previewIsPlaying = false;
+let previewAudioObj = null;
+let previewTimer = null;
+
+function openScenePreviewModal() {
+  if (!currentSceneData || !currentSceneData.beats || currentSceneData.beats.length === 0) {
+    showToast("Nenhuma cena carregada para pré-visualização.", "warn");
+    return;
+  }
+  const modal = document.getElementById("scene-preview-modal");
+  if (!modal) return;
+  modal.style.display = "flex";
+  previewCurrentIndex = 0;
+  playPreviewShot(0);
+}
+
+function closeScenePreviewModal() {
+  const modal = document.getElementById("scene-preview-modal");
+  if (modal) modal.style.display = "none";
+  if (previewAudioObj) {
+    previewAudioObj.pause();
+    previewAudioObj = null;
+  }
+  if (previewTimer) {
+    clearTimeout(previewTimer);
+    previewTimer = null;
+  }
+  const mediaContainer = document.getElementById("preview-media-container");
+  if (mediaContainer) {
+    const video = mediaContainer.querySelector("video");
+    if (video) video.pause();
+  }
+  previewIsPlaying = false;
+}
+
+function playPreviewShot(index) {
+  const beats = currentSceneData.beats || [];
+  if (index < 0 || index >= beats.length) {
+    closeScenePreviewModal();
+    showToast("🎉 Prévia da cena concluída!", "success");
+    return;
+  }
+
+  if (previewAudioObj) {
+    previewAudioObj.pause();
+    previewAudioObj = null;
+  }
+  if (previewTimer) {
+    clearTimeout(previewTimer);
+    previewTimer = null;
+  }
+
+  previewCurrentIndex = index;
+  const beat = beats[index];
+
+  const badge = document.getElementById("preview-shot-badge");
+  if (badge) badge.textContent = `PLANO ${String(index + 1).padStart(2, "0")}/${String(beats.length).padStart(2, "0")} — ${beat.shot_id}`;
+
+  const title = document.getElementById("preview-shot-title");
+  if (title) title.textContent = beat.action_pt || "Ação do Plano";
+
+  const subtitle = document.getElementById("preview-subtitle-overlay");
+  if (subtitle) {
+    if (beat.narration) {
+      subtitle.style.display = "block";
+      subtitle.innerHTML = `🎙️ <em>"${escapeHtml(beat.narration)}"</em>`;
+    } else {
+      subtitle.style.display = "none";
+    }
+  }
+
+  const indicator = document.getElementById("preview-timeline-indicator");
+  if (indicator) indicator.textContent = `Plano ${index + 1} de ${beats.length} • Duração: ~${beat.duration_s || 6}s`;
+
+  const container = document.getElementById("preview-media-container");
+  container.innerHTML = "";
+
+  const audioUrl = beat.audio_file ? (beat.audio_file.startsWith('/api/') ? beat.audio_file : '/api/audio/' + beat.audio_file) : null;
+
+  if (beat.video_url) {
+    const video = document.createElement("video");
+    video.src = beat.video_url;
+    video.autoplay = true;
+    video.controls = false;
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.objectFit = "contain";
+    video.onended = () => {
+      if (previewIsPlaying) nextPreviewShot();
+    };
+    container.appendChild(video);
+    video.play().catch(e => console.log("Video auto-play prevented:", e));
+  } else {
+    const img = document.createElement("img");
+    img.src = beat.generated_image || beat.actor_image || "assets/placeholder.svg";
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "contain";
+    container.appendChild(img);
+
+    if (audioUrl) {
+      previewAudioObj = new Audio(audioUrl);
+      previewAudioObj.play().catch(e => console.log("Audio play error:", e));
+      previewAudioObj.onended = () => {
+        if (previewIsPlaying) nextPreviewShot();
+      };
+    } else {
+      const durMs = (beat.duration_s || 6.0) * 1000;
+      previewTimer = setTimeout(() => {
+        if (previewIsPlaying && previewCurrentIndex === index) {
+          nextPreviewShot();
+        }
+      }, durMs);
+    }
+  }
+
+  previewIsPlaying = true;
+  const playBtn = document.getElementById("btn-preview-play-pause");
+  if (playBtn) playBtn.textContent = "⏸ Pausar";
+}
+
+function togglePreviewPlayPause() {
+  const container = document.getElementById("preview-media-container");
+  const video = container ? container.querySelector("video") : null;
+  const playBtn = document.getElementById("btn-preview-play-pause");
+
+  if (previewIsPlaying) {
+    previewIsPlaying = false;
+    if (video) video.pause();
+    if (previewAudioObj) previewAudioObj.pause();
+    if (previewTimer) {
+      clearTimeout(previewTimer);
+      previewTimer = null;
+    }
+    if (playBtn) playBtn.textContent = "▶ Continuar";
+  } else {
+    previewIsPlaying = true;
+    if (video) video.play();
+    if (previewAudioObj) previewAudioObj.play();
+    if (!video && !previewAudioObj) {
+      const beat = (currentSceneData.beats || [])[previewCurrentIndex];
+      const durMs = (beat && beat.duration_s ? beat.duration_s : 6.0) * 1000;
+      previewTimer = setTimeout(() => {
+        if (previewIsPlaying) nextPreviewShot();
+      }, durMs);
+    }
+    if (playBtn) playBtn.textContent = "⏸ Pausar";
+  }
+}
+
+function nextPreviewShot() {
+  const beats = currentSceneData.beats || [];
+  if (previewCurrentIndex < beats.length - 1) {
+    playPreviewShot(previewCurrentIndex + 1);
+  } else {
+    closeScenePreviewModal();
+    showToast("🎬 Prévia da cena concluída!", "success");
+  }
+}
+
+function prevPreviewShot() {
+  if (previewCurrentIndex > 0) {
+    playPreviewShot(previewCurrentIndex - 1);
+  }
 }
 
 // ==========================================
