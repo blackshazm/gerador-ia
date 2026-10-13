@@ -1,0 +1,341 @@
+{
+  "project_name": "Triade_SC_01",
+  "target_editor": "CapCut Desktop",
+  "fps": 24,
+  "tracks": {
+    "video_v1": [
+      {
+        "shot_id": "SC01_SH01",
+        "filename": "SC01_SH01.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH01.mp4",
+        "start_time_ms": 0,
+        "duration_ms": 10300,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH02",
+        "filename": "SC01_SH02.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH02.mp4",
+        "start_time_ms": 10300,
+        "duration_ms": 10400,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH03",
+        "filename": "SC01_SH03.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH03.mp4",
+        "start_time_ms": 20700,
+        "duration_ms": 13000,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH04",
+        "filename": "SC01_SH04.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH04.mp4",
+        "start_time_ms": 33700,
+        "duration_ms": 11100,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH05",
+        "filename": "SC01_SH05.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH05.mp4",
+        "start_time_ms": 44800,
+        "duration_ms": 6800,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH06",
+        "filename": "SC01_SH06.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH06.mp4",
+        "start_time_ms": 51600,
+        "duration_ms": 8900,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH07",
+        "filename": "SC01_SH07.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH07.mp4",
+        "start_time_ms": 60500,
+        "duration_ms": 14900,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH08",
+        "filename": "SC01_SH08.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH08.mp4",
+        "start_time_ms": 75400,
+        "duration_ms": 14800,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH09",
+        "filename": "SC01_SH09.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH09.mp4",
+        "start_time_ms": 90200,
+        "duration_ms": 15700,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH10",
+        "filename": "SC01_SH10.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH10.mp4",
+        "start_time_ms": 105900,
+        "duration_ms": 12700,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH11",
+        "filename": "SC01_SH11.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH11.mp4",
+        "start_time_ms": 118600,
+        "duration_ms": 13300,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH12",
+        "filename": "SC01_SH12.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH12.mp4",
+        "start_time_ms": 131900,
+        "duration_ms": 17600,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH13",
+        "filename": "SC01_SH13.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH13.mp4",
+        "start_time_ms": 149500,
+        "duration_ms": 16200,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH14",
+        "filename": "SC01_SH14.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH14.mp4",
+        "start_time_ms": 165700,
+        "duration_ms": 15000,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH15",
+        "filename": "SC01_SH15.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH15.mp4",
+        "start_time_ms": 180700,
+        "duration_ms": 14700,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH16",
+        "filename": "SC01_SH16.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH16.mp4",
+        "start_time_ms": 195400,
+        "duration_ms": 17900,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH17",
+        "filename": "SC01_SH17.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH17.mp4",
+        "start_time_ms": 213300,
+        "duration_ms": 11100,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH18",
+        "filename": "SC01_SH18.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH18.mp4",
+        "start_time_ms": 224400,
+        "duration_ms": 15000,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH19",
+        "filename": "SC01_SH19.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH19.mp4",
+        "start_time_ms": 239400,
+        "duration_ms": 14000,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH20",
+        "filename": "SC01_SH20.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH20.mp4",
+        "start_time_ms": 253400,
+        "duration_ms": 10800,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH21",
+        "filename": "SC01_SH21.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH21.mp4",
+        "start_time_ms": 264200,
+        "duration_ms": 9100,
+        "exists_on_disk": false
+      },
+      {
+        "shot_id": "SC01_SH22",
+        "filename": "SC01_SH22.mp4",
+        "expected_path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\06_renders\\SC01_SH22.mp4",
+        "start_time_ms": 273300,
+        "duration_ms": 14200,
+        "exists_on_disk": false
+      }
+    ],
+    "audio_a1_voice": [
+      {
+        "shot_id": "SC01_SH01",
+        "filename": "SC01_SH01_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH01_voice.mp3",
+        "start_time_ms": 0,
+        "duration_ms": 9460
+      },
+      {
+        "shot_id": "SC01_SH02",
+        "filename": "SC01_SH02_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH02_voice.mp3",
+        "start_time_ms": 10300,
+        "duration_ms": 9580
+      },
+      {
+        "shot_id": "SC01_SH03",
+        "filename": "SC01_SH03_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH03_voice.mp3",
+        "start_time_ms": 20700,
+        "duration_ms": 12170
+      },
+      {
+        "shot_id": "SC01_SH04",
+        "filename": "SC01_SH04_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH04_voice.mp3",
+        "start_time_ms": 33700,
+        "duration_ms": 10250
+      },
+      {
+        "shot_id": "SC01_SH05",
+        "filename": "SC01_SH05_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH05_voice.mp3",
+        "start_time_ms": 44800,
+        "duration_ms": 5950
+      },
+      {
+        "shot_id": "SC01_SH06",
+        "filename": "SC01_SH06_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH06_voice.mp3",
+        "start_time_ms": 51600,
+        "duration_ms": 8109
+      },
+      {
+        "shot_id": "SC01_SH07",
+        "filename": "SC01_SH07_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH07_voice.mp3",
+        "start_time_ms": 60500,
+        "duration_ms": 14110
+      },
+      {
+        "shot_id": "SC01_SH08",
+        "filename": "SC01_SH08_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH08_voice.mp3",
+        "start_time_ms": 75400,
+        "duration_ms": 13970
+      },
+      {
+        "shot_id": "SC01_SH09",
+        "filename": "SC01_SH09_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH09_voice.mp3",
+        "start_time_ms": 90200,
+        "duration_ms": 14860
+      },
+      {
+        "shot_id": "SC01_SH10",
+        "filename": "SC01_SH10_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH10_voice.mp3",
+        "start_time_ms": 105900,
+        "duration_ms": 11900
+      },
+      {
+        "shot_id": "SC01_SH11",
+        "filename": "SC01_SH11_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH11_voice.mp3",
+        "start_time_ms": 118600,
+        "duration_ms": 12530
+      },
+      {
+        "shot_id": "SC01_SH12",
+        "filename": "SC01_SH12_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH12_voice.mp3",
+        "start_time_ms": 131900,
+        "duration_ms": 16750
+      },
+      {
+        "shot_id": "SC01_SH13",
+        "filename": "SC01_SH13_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH13_voice.mp3",
+        "start_time_ms": 149500,
+        "duration_ms": 15380
+      },
+      {
+        "shot_id": "SC01_SH14",
+        "filename": "SC01_SH14_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH14_voice.mp3",
+        "start_time_ms": 165700,
+        "duration_ms": 14180
+      },
+      {
+        "shot_id": "SC01_SH15",
+        "filename": "SC01_SH15_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH15_voice.mp3",
+        "start_time_ms": 180700,
+        "duration_ms": 13870
+      },
+      {
+        "shot_id": "SC01_SH16",
+        "filename": "SC01_SH16_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH16_voice.mp3",
+        "start_time_ms": 195400,
+        "duration_ms": 17060
+      },
+      {
+        "shot_id": "SC01_SH17",
+        "filename": "SC01_SH17_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH17_voice.mp3",
+        "start_time_ms": 213300,
+        "duration_ms": 10320
+      },
+      {
+        "shot_id": "SC01_SH18",
+        "filename": "SC01_SH18_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH18_voice.mp3",
+        "start_time_ms": 224400,
+        "duration_ms": 14160
+      },
+      {
+        "shot_id": "SC01_SH19",
+        "filename": "SC01_SH19_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH19_voice.mp3",
+        "start_time_ms": 239400,
+        "duration_ms": 13150
+      },
+      {
+        "shot_id": "SC01_SH20",
+        "filename": "SC01_SH20_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH20_voice.mp3",
+        "start_time_ms": 253400,
+        "duration_ms": 10010
+      },
+      {
+        "shot_id": "SC01_SH21",
+        "filename": "SC01_SH21_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH21_voice.mp3",
+        "start_time_ms": 264200,
+        "duration_ms": 8330
+      },
+      {
+        "shot_id": "SC01_SH22",
+        "filename": "SC01_SH22_voice.mp3",
+        "path": "D:\\Desktop\\gerador ia\\projects\\wayside_school\\05_audio\\SC01_SH22_voice.mp3",
+        "start_time_ms": 273300,
+        "duration_ms": 13420
+      }
+    ]
+  }
+}

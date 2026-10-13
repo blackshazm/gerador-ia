@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RenderPayloadSchema",
+  "description": "Schema estrito para os Payloads Multi-Motor (Kling AI e Google Flow/Veo)",
+  "type": "object",
+  "required": [
+    "target_engine",
+    "shot_id",
+    "aspect_ratio",
+    "prompt",
+    "negative_prompt"
+  ],
+  "properties": {
+    "target_engine": { "type": "string", "enum": ["kling_v2", "veo_3.1"] },
+    "shot_id": { "type": "string" },
+    "aspect_ratio": { "type": "string", "enum": ["16:9", "2.39:1", "9:16"] },
+    "duration_s": { "type": "number" },
+    "prompt": { "type": "string" },
+    "negative_prompt": { "type": "string" },
+    "start_frame_path": { "type": ["string", "null"] },
+    "kling_parameters": {
+      "type": "object",
+      "properties": {
+        "mode": { "type": "string", "enum": ["standard", "professional"] },
+        "camera_controls": {
+          "type": "object",
+          "properties": {
+            "horizontal": { "type": "number", "minimum": -10.0, "maximum": 10.0 },
+            "vertical": { "type": "number", "minimum": -10.0, "maximum": 10.0 },
+            "zoom": { "type": "number", "minimum": -10.0, "maximum": 10.0 },
+            "tilt": { "type": "number", "minimum": -10.0, "maximum": 10.0 },
+            "pan": { "type": "number", "minimum": -10.0, "maximum": 10.0 },
+            "roll": { "type": "number", "minimum": -10.0, "maximum": 10.0 }
+          }
+        },
+        "creativity_relevance_ratio": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      }
+    },
+    "veo_parameters": {
+      "type": "object",
+      "properties": {
+        "reference_ingredients": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

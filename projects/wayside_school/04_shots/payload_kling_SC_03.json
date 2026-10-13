@@ -1,0 +1,306 @@
+[
+  {
+    "shot_id": "SC_03_SH01",
+    "target_engine": "kling_v2",
+    "duration_s": 13.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Primeiro plano da cena, iniciar com a sala vazia e as crianças saindo."
+  },
+  {
+    "shot_id": "SC_03_SH02",
+    "target_engine": "kling_v2",
+    "duration_s": 16.6,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow push-in frontal with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.05,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo Joe e Mrs. Jewls na mesma posição relativa."
+  },
+  {
+    "shot_id": "SC_03_SH03",
+    "target_engine": "kling_v2",
+    "duration_s": 21.3,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, focando no rosto de Joe a partir do médio."
+  },
+  {
+    "shot_id": "SC_03_SH04",
+    "target_engine": "kling_v2",
+    "duration_s": 49.1,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo a carteira de Joe em foco enquanto os lápis aparecem."
+  },
+  {
+    "shot_id": "SC_03_SH05",
+    "target_engine": "kling_v2",
+    "duration_s": 41.4,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo a carteira de Joe e transição para os objetos."
+  },
+  {
+    "shot_id": "SC_03_SH06",
+    "target_engine": "kling_v2",
+    "duration_s": 4.3,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo a carteira com as batatas e os personagens na mesma posição."
+  },
+  {
+    "shot_id": "SC_03_SH07",
+    "target_engine": "kling_v2",
+    "duration_s": 17.2,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Primeiro plano da cena, sem referência anterior."
+  },
+  {
+    "shot_id": "SC_03_SH08",
+    "target_engine": "kling_v2",
+    "duration_s": 11.7,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano SH07, mantendo foco na mesa onde os livros estão."
+  },
+  {
+    "shot_id": "SC_03_SH09",
+    "target_engine": "kling_v2",
+    "duration_s": 7.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow push-in frontal with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano SH08, mantendo Joe e Mrs. Jewls no mesmo posicionamento relativo."
+  },
+  {
+    "shot_id": "SC_03_SH10",
+    "target_engine": "kling_v2",
+    "duration_s": 4.2,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano SH09, focando na mão de Joe na mesma posição."
+  },
+  {
+    "shot_id": "SC_03_SH11",
+    "target_engine": "kling_v2",
+    "duration_s": 22.4,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano SH10, mantendo Mrs. Jewls e Joe no mesmo enquadramento."
+  },
+  {
+    "shot_id": "SC_03_SH12",
+    "target_engine": "kling_v2",
+    "duration_s": 54.6,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano SH11, mantendo a mesma ambientação de sala."
+  },
+  {
+    "shot_id": "SC_03_SH13",
+    "target_engine": "kling_v2",
+    "duration_s": 13.6,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano SH12, mantendo foco no rosto de Joe com a parede de fundo levemente desfocada."
+  },
+  {
+    "shot_id": "SC_03_SH14",
+    "target_engine": "kling_v2",
+    "duration_s": 24.1,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Primeiro plano da sequência, iniciar com a sala de aula vazia e depois as crianças entrando pelo fundo."
+  },
+  {
+    "shot_id": "SC_03_SH15",
+    "target_engine": "kling_v2",
+    "duration_s": 16.1,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo Joe na mesma posição inicial e John entrando do lado direito do quadro."
+  },
+  {
+    "shot_id": "SC_03_SH16",
+    "target_engine": "kling_v2",
+    "duration_s": 19.4,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo Joy e Maurecia na mesma posição e Joe no centro."
+  },
+  {
+    "shot_id": "SC_03_SH17",
+    "target_engine": "kling_v2",
+    "duration_s": 21.7,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow push-in frontal with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, focando no rosto de Joe que estava olhando para baixo."
+  },
+  {
+    "shot_id": "SC_03_SH18",
+    "target_engine": "kling_v2",
+    "duration_s": 15.9,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo Mrs. Jewls no quadro e Joe na carteira."
+  },
+  {
+    "shot_id": "SC_03_SH19",
+    "target_engine": "kling_v2",
+    "duration_s": 50.3,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Static with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Usar último frame do plano anterior, mantendo Joe na mesma posição e Mrs. Jewls entrando do lado direito."
+  }
+]

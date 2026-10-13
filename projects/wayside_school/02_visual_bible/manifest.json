@@ -1,0 +1,552 @@
+{
+  "characters": [
+    {
+      "tag": "@dona_gorf",
+      "name": "Dona Gorf (Mrs. Gorf)",
+      "role": "Professora Antagonista",
+      "physical_description": "Mulher por volta dos 55 anos, porte austero, orelhas pontudas distintivas, olhar penetrante e severo, coque alto volumoso com grampos de madeira, vestido vitoriano escuro de gola alta com broche preto.",
+      "image_primary": "assets/dona_gorf_p1_realistic.png",
+      "image_modelsheet": "assets/dona_gorf_modelsheet.jpg",
+      "image_expressions": "assets/dona_gorf_expressions.jpg",
+      "casting_prompt_realistic": "Cinematic character concept portrait of Mrs. Gorf, 35mm photograph, 8k",
+      "casting_prompt_stylized": "Stylized 3D animated film character, Mrs. Gorf, an eccentric strict schoolteacher with prominent pointed ears, tall tight hair bun, dark stylized vintage dress, Pixar and DreamWorks character design aesthetic, vibrant lighting, Octane render, 8k --ar 1:1",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Dona Gorf (Mrs. Gorf), 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Mulher por volta dos 55 anos, porte austero, orelhas pontudas distintivas, olhar penetrante e severo, coque alto volumoso com grampos de madeira, vestido vitoriano escuro de gola alta com broche preto.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Dona Gorf (Mrs. Gorf), 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Mulher por volta dos 55 anos, porte austero, orelhas pontudas distintivas, olhar penetrante e severo, coque alto volumoso com grampos de madeira, vestido vitoriano escuro de gola alta com broche preto.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Dona Gorf (Mrs. Gorf), clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Mulher por volta dos 55 anos, porte austero, orelhas pontudas distintivas, olhar penetrante e severo, coque alto volumoso com grampos de madeira, vestido vitoriano escuro de gola alta com broche preto.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Dona Gorf (Mrs. Gorf), clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Mulher por volta dos 55 anos, porte austero, orelhas pontudas distintivas, olhar penetrante e severo, coque alto volumoso com grampos de madeira, vestido vitoriano escuro de gola alta com broche preto.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1_realistic.jpg",
+        "modelsheet": "assets/dona_gorf_modelsheet_realistic.jpg",
+        "expressions": "assets/dona_gorf_expressions_realistic.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_modelsheet.jpg",
+        "expressions": "assets/dona_gorf_expressions.jpg"
+      },
+      "image_primary_realistic": "assets/dona_gorf_p1_realistic.png",
+      "prompts_realistic": {
+        "p1": "Cinematic character concept portrait of Mrs. Gorf, 35mm photograph, 8k"
+      }
+    },
+    {
+      "tag": "@joe",
+      "name": "Joe",
+      "role": "Aluno Protagonista (Episódio 1)",
+      "physical_description": "Menino de 9 anos, cabelos castanhos volumosos e encaracolados, sardas nas bochechas, olhar assustado e ingênuo, colete de lã e camisa de botão antiga.",
+      "image_primary": "assets/joe_p1.jpg",
+      "image_modelsheet": "assets/joe_modelsheet.jpg",
+      "image_expressions": "assets/joe_p1.jpg",
+      "casting_prompt_realistic": "Portrait of young schoolboy Joe, 9 years old, messy brown curly hair, freckles, timid frightened expression, vintage 19th-century school clothes, cinematic lighting, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animation character of little schoolboy Joe, 9 years old, messy curly brown hair, big expressive innocent eyes, freckles, vintage school uniform, cute Pixar character design, Octane render, 8k --ar 1:1",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Joe, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Menino de 9 anos, cabelos castanhos volumosos e encaracolados, sardas nas bochechas, olhar assustado e ingênuo, colete de lã e camisa de botão antiga.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Joe, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Menino de 9 anos, cabelos castanhos volumosos e encaracolados, sardas nas bochechas, olhar assustado e ingênuo, colete de lã e camisa de botão antiga.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Joe, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Menino de 9 anos, cabelos castanhos volumosos e encaracolados, sardas nas bochechas, olhar assustado e ingênuo, colete de lã e camisa de botão antiga.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Joe, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Menino de 9 anos, cabelos castanhos volumosos e encaracolados, sardas nas bochechas, olhar assustado e ingênuo, colete de lã e camisa de botão antiga.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/joe_p1.jpg",
+        "modelsheet": "assets/joe_modelsheet.jpg",
+        "expressions": "assets/joe_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/joe_p1.jpg",
+        "modelsheet": "assets/joe_modelsheet.jpg",
+        "expressions": "assets/joe_p1.jpg"
+      }
+    },
+    {
+      "tag": "@mrsjewls",
+      "name": "Mrs. Jewls",
+      "role": "Professora do 30º andar",
+      "physical_description": "Professora de aparência extremamente simpática e acolhedora, com rosto agradável. Vestimenta profissional porém surpreendida pela reação dos alunos.",
+      "casting_prompt_realistic": "Cinematic portrait of a kind elementary school teacher, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Mrs. Jewls, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Professora de aparência extremamente simpática e acolhedora, com rosto agradável. Vestimenta profissional porém surpreendida pela reação dos alunos.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Mrs. Jewls, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Professora de aparência extremamente simpática e acolhedora, com rosto agradável. Vestimenta profissional porém surpreendida pela reação dos alunos.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Mrs. Jewls, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Professora de aparência extremamente simpática e acolhedora, com rosto agradável. Vestimenta profissional porém surpreendida pela reação dos alunos.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Mrs. Jewls, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Professora de aparência extremamente simpática e acolhedora, com rosto agradável. Vestimenta profissional porém surpreendida pela reação dos alunos.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/mrsjewls_p1_stylized.jpg",
+        "modelsheet": "assets/mrsjewls_modelsheet_stylized.jpg",
+        "expressions": "assets/mrsjewls_expressions_stylized.jpg"
+      }
+    },
+    {
+      "tag": "@todd",
+      "name": "Todd",
+      "role": "Aluno da turma do 30º andar",
+      "physical_description": "Criança pequena, aparente idade entre 7-8 anos, com gesto de coçar a cabeça quando confundido. Vestimenta casual de criança.",
+      "casting_prompt_realistic": "Cinematic portrait of a young elementary school boy looking confused, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Todd, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Criança pequena, aparente idade entre 7-8 anos, com gesto de coçar a cabeça quando confundido. Vestimenta casual de criança.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Todd, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Criança pequena, aparente idade entre 7-8 anos, com gesto de coçar a cabeça quando confundido. Vestimenta casual de criança.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Todd, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Criança pequena, aparente idade entre 7-8 anos, com gesto de coçar a cabeça quando confundido. Vestimenta casual de criança.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Todd, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Criança pequena, aparente idade entre 7-8 anos, com gesto de coçar a cabeça quando confundido. Vestimenta casual de criança.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@calvin",
+      "name": "Calvin",
+      "role": "Aluno da turma do 30º andar",
+      "physical_description": "Criança pequena, aparente idade entre 7-8 anos, usa camisa vermelha. Responde prontamente às provocações da professora. Vestimenta inclui camisa vermelha distintiva.",
+      "casting_prompt_realistic": "Cinematic portrait of a young elementary school boy in red shirt, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Calvin, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Criança pequena, aparente idade entre 7-8 anos, usa camisa vermelha. Responde prontamente às provocações da professora. Vestimenta inclui camisa vermelha distintiva.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Calvin, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Criança pequena, aparente idade entre 7-8 anos, usa camisa vermelha. Responde prontamente às provocações da professora. Vestimenta inclui camisa vermelha distintiva.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Calvin, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Criança pequena, aparente idade entre 7-8 anos, usa camisa vermelha. Responde prontamente às provocações da professora. Vestimenta inclui camisa vermelha distintiva.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Calvin, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Criança pequena, aparente idade entre 7-8 anos, usa camisa vermelha. Responde prontamente às provocações da professora. Vestimenta inclui camisa vermelha distintiva.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@allison",
+      "name": "Allison",
+      "role": "Aluna da turma do 30º andar",
+      "physical_description": "Criança pequena, aparente idade entre 7-8 anos, fala com certeza sobre identidade. Vestimenta padrão de aluna.",
+      "casting_prompt_realistic": "Cinematic portrait of a young elementary school girl asserting identity, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Allison, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Criança pequena, aparente idade entre 7-8 anos, fala com certeza sobre identidade. Vestimenta padrão de aluna.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Allison, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Criança pequena, aparente idade entre 7-8 anos, fala com certeza sobre identidade. Vestimenta padrão de aluna.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Allison, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Criança pequena, aparente idade entre 7-8 anos, fala com certeza sobre identidade. Vestimenta padrão de aluna.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Allison, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Criança pequena, aparente idade entre 7-8 anos, fala com certeza sobre identidade. Vestimenta padrão de aluna.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@jenny",
+      "name": "Jenny",
+      "role": "Aluna da turma do 30º andar",
+      "physical_description": "Criança pequena, aparente idade entre 7-8 anos, responde à professora sobre o nome real da turma. Vestimenta padrão de aluna.",
+      "casting_prompt_realistic": "Cinematic portrait of a young elementary school girl responding to teacher, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Jenny, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Criança pequena, aparente idade entre 7-8 anos, responde à professora sobre o nome real da turma. Vestimenta padrão de aluna.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Jenny, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Criança pequena, aparente idade entre 7-8 anos, responde à professora sobre o nome real da turma. Vestimenta padrão de aluna.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Jenny, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Criança pequena, aparente idade entre 7-8 anos, responde à professora sobre o nome real da turma. Vestimenta padrão de aluna.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Jenny, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Criança pequena, aparente idade entre 7-8 anos, responde à professora sobre o nome real da turma. Vestimenta padrão de aluna.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@jason",
+      "name": "Jason",
+      "role": "Aluno da turma do 30º andar",
+      "physical_description": "Criança pequena, aparente idade entre 7-8 anos, levanta a mão para responder. Vestimenta inclui camisa vermelha.",
+      "casting_prompt_realistic": "Cinematic portrait of a young elementary school boy raising hand, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Jason, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Criança pequena, aparente idade entre 7-8 anos, levanta a mão para responder. Vestimenta inclui camisa vermelha.. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Jason, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Criança pequena, aparente idade entre 7-8 anos, levanta a mão para responder. Vestimenta inclui camisa vermelha.. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Jason, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Criança pequena, aparente idade entre 7-8 anos, levanta a mão para responder. Vestimenta inclui camisa vermelha.. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Jason, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Criança pequena, aparente idade entre 7-8 anos, levanta a mão para responder. Vestimenta inclui camisa vermelha.. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@mrs_jewls",
+      "name": "Mrs. Jewls",
+      "role": "Nova professora da trigésima série",
+      "physical_description": "Mulher adulta com rosto muito agradável, aparência gentil e acolhedora, vestindo roupas típicas de professora da época (provavelmente saia ou vestido modesto, blusa, sapatos confortáveis), expressão de surpresa e confusão ao ver as crianças",
+      "casting_prompt_realistic": "Cinematic portrait of a kind-faced adult woman with warm expression, wearing modest teacher attire from 1970s, standing on a creaking wooden staircase, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character of a warm-hearted female teacher, Pixar aesthetic, expressive eyes, soft facial features, wearing modest outfit, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Mrs. Jewls, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Mulher adulta com rosto muito agradável, aparência gentil e acolhedora, vestindo roupas típicas de professora da época (provavelmente saia ou vestido modesto, blusa, sapatos confortáveis), expressão de surpresa e confusão ao ver as crianças. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Mrs. Jewls, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Mulher adulta com rosto muito agradável, aparência gentil e acolhedora, vestindo roupas típicas de professora da época (provavelmente saia ou vestido modesto, blusa, sapatos confortáveis), expressão de surpresa e confusão ao ver as crianças. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Mrs. Jewls, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Mulher adulta com rosto muito agradável, aparência gentil e acolhedora, vestindo roupas típicas de professora da época (provavelmente saia ou vestido modesto, blusa, sapatos confortáveis), expressão de surpresa e confusão ao ver as crianças. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Mrs. Jewls, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Mulher adulta com rosto muito agradável, aparência gentil e acolhedora, vestindo roupas típicas de professora da época (provavelmente saia ou vestido modesto, blusa, sapatos confortáveis), expressão de surpresa e confusão ao ver as crianças. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@mrsgorf",
+      "name": "Sra. Gorf",
+      "role": "Professora antagonista",
+      "physical_description": "Mulher de aparência severa, com língua longa e orelhas pontiagudas, vestindo roupas formais de professora, provavelmente na faixa dos 40 a 50 anos",
+      "casting_prompt_realistic": "Cinematic portrait of a stern woman with long tongue and pointed ears, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character of a strict teacher with elongated tongue and sharp ears, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Sra. Gorf, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Mulher de aparência severa, com língua longa e orelhas pontiagudas, vestindo roupas formais de professora, provavelmente na faixa dos 40 a 50 anos. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Sra. Gorf, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Mulher de aparência severa, com língua longa e orelhas pontiagudas, vestindo roupas formais de professora, provavelmente na faixa dos 40 a 50 anos. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Sra. Gorf, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Mulher de aparência severa, com língua longa e orelhas pontiagudas, vestindo roupas formais de professora, provavelmente na faixa dos 40 a 50 anos. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Sra. Gorf, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Mulher de aparência severa, com língua longa e orelhas pontiagudas, vestindo roupas formais de professora, provavelmente na faixa dos 40 a 50 anos. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@john",
+      "name": "John",
+      "role": "Aluno que ajuda o amigo",
+      "physical_description": "Menino cooperativo, tenta ajudar Joe ao permitir que ele copie, vestindo roupas escolares simples",
+      "casting_prompt_realistic": "Cinematic portrait of a helpful young boy, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character of a kind-hearted student, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of John, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Menino cooperativo, tenta ajudar Joe ao permitir que ele copie, vestindo roupas escolares simples. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of John, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Menino cooperativo, tenta ajudar Joe ao permitir que ele copie, vestindo roupas escolares simples. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of John, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Menino cooperativo, tenta ajudar Joe ao permitir que ele copie, vestindo roupas escolares simples. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of John, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Menino cooperativo, tenta ajudar Joe ao permitir que ele copie, vestindo roupas escolares simples. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    },
+    {
+      "tag": "@stephen",
+      "name": "Stephen",
+      "role": "Aluno sensível",
+      "physical_description": "Menino emotivo, preste a chorar facilmente, assustado com as ações da professora, vestindo roupas infantis",
+      "casting_prompt_realistic": "Cinematic portrait of a sensitive boy on the verge of tears, 35mm photograph, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated character of an emotionally expressive child, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/dona_gorf_p1.jpg",
+      "modelsheet_prompt_realistic": "Full character turnaround model sheet of Stephen, 4 exact orthographic angles arranged horizontally: front view, three-quarter view, full side profile view, and clean back view. Subject standing in balanced neutral A-pose on seamless pure white studio background with soft contact floor shadows. Physical features: Menino emotivo, preste a chorar facilmente, assustado com as ações da professora, vestindo roupas infantis. Costume details: realistic fabric weaving, aged texture, natural cloth wrinkles and folds. Camera: 85mm portrait prime lens, f/8 aperture for deep focus sharpness across all views, soft balanced three-point studio lighting, subsurface scattering on skin, visible facial pores, sharp eyelashes. Ultra-sharp film production character turnaround sheet, photorealistic 35mm film photography, 8k resolution --ar 16:9",
+      "expressions_prompt_realistic": "Facial expression study sheet of Stephen, clean 2x2 grid of 4 distinct ultra-expressive close-up portraits: 1) Top-left: neutral analytical stare with subtle tension around the eyes; 2) Top-right: intense terrified scream with widened pupils, raised eyebrows and gasping open mouth; 3) Bottom-left: suspicious puzzled sideways glance with furrowed brow; 4) Bottom-right: wicked sinister smirk with narrowing eyelids and subtle cheek crease. Character traits: Menino emotivo, preste a chorar facilmente, assustado com as ações da professora, vestindo roupas infantis. Consistent facial anatomy across all 4 frames. 85mm macro portrait lens, f/2.8, shallow depth of field, subtle directional key light revealing authentic skin micro-textures, individual hair strands. Cinematographic character expression chart, photorealistic 35mm film, 8k --ar 16:9",
+      "modelsheet_prompt_stylized": "Full character turnaround reference model sheet of Stephen, 4 orthographic views: front, three-quarter, side profile, and back view in neutral A-pose. Stylized 3D animated feature film character design, Disney and Pixar animation studio aesthetic. Character design notes: Menino emotivo, preste a chorar facilmente, assustado com as ações da professora, vestindo roupas infantis. Clean white cyclorama studio background, soft ambient occlusion, smooth stylized subsurface scattering skin shader, vibrant appealing color palette, expressive proportions, RenderMan and Octane render quality, 8k --ar 16:9",
+      "expressions_prompt_stylized": "Character emotional expression sheet of Stephen, clean 2x2 grid showing 4 vibrant stylized facial expressions: 1) curious mischievous smile; 2) hilarious comically terrified open-mouthed scream; 3) skeptical squinting side-eye; 4) triumphant joyful wide grin. Character: Menino emotivo, preste a chorar facilmente, assustado com as ações da professora, vestindo roupas infantis. Disney Pixar style animation character concept art, rich specular eye highlights, appealing volumetric lighting, 8k --ar 16:9",
+      "images_realistic": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      },
+      "images_stylized": {
+        "p1": "assets/dona_gorf_p1.jpg",
+        "modelsheet": "assets/dona_gorf_p1.jpg",
+        "expressions": "assets/dona_gorf_p1.jpg"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "tag": "@sala_30_andar",
+      "name": "Sala do 30º Andar (Wayside School)",
+      "description": "Sala de aula clássica do século XIX no trigésimo andar, carteiras de madeira enfileiradas, grande janela em arco mostrando nuvens e céu aberto em altitude vertiginosa, luz dourada da tarde com partículas de poeira suspensas, lousa verde com a lição escrita a giz.",
+      "image_primary": "assets/sala_30_andar.jpg",
+      "image_matte_painting": "assets/sala_30_andar_set_design.jpg",
+      "image_lighting": "assets/sala_30_andar_lighting_realistic.jpg",
+      "casting_prompt_realistic": "Cinematic establishing master shot of a vintage 19th-century school classroom on the thirtieth floor, wooden desks, tall arched window overlooking clouds at high altitude, golden afternoon light rays, chalkboard, 35mm film photo, 8k --ar 16:9",
+      "casting_prompt_stylized": "Stylized 3D animation concept art of a whimsical classroom in the clouds, 30th floor with tall arched window showing fluffy clouds, colorful wooden desks, warm magical lighting, Pixar movie environment design, 8k --ar 16:9",
+      "matte_prompt_realistic": "Architectural set design concept and comprehensive environment turnaround of Sala do 30º Andar (Wayside School). Split view showing 3 wide cinematic angles: wide establishing perspective, reverse angle showing opposing wall, and low-angle architectural details. Sala de aula clássica do século XIX no trigésimo andar, carteiras de madeira enfileiradas, grande janela em arco mostrando nuvens e céu aberto em altitude vertiginosa, luz dourada da tarde com partículas de poeira suspensas, lousa verde com a lição escrita a giz.. Authentic aged wooden floorboards, textured plaster walls, volumetric window lighting with floating dust motes, Arri Alexa 65 cinematography look, 24mm wide angle lens, f/4.0, ultra-realistic physical set, 8k --ar 16:9",
+      "matte_prompt_stylized": "Stylized 3D animated environment design turnaround of Sala do 30º Andar (Wayside School), 3 colorful angles showing architectural geometry, interior props, whimsical angles and playful scale. Sala de aula clássica do século XIX no trigésimo andar, carteiras de madeira enfileiradas, grande janela em arco mostrando nuvens e céu aberto em altitude vertiginosa, luz dourada da tarde com partículas de poeira suspensas, lousa verde com a lição escrita a giz.. Pixar and DreamWorks movie set concept art, warm inviting lighting, soft shadows, RenderMan engine, 8k --ar 16:9",
+      "lighting_prompt_realistic": "Cinematic dual lighting study for movie set Sala do 30º Andar (Wayside School): split comparison showing warm 3200K late-afternoon sunlight with golden shafts versus dramatic stormy twilight with cool 6500K shadows and high-contrast chiaroscuro. Sala de aula clássica do século XIX no trigésimo andar, carteiras de madeira enfileiradas, grande janela em arco mostrando nuvens e céu aberto em altitude vertiginosa, luz dourada da tarde com partículas de poeira suspensas, lousa verde com a lição escrita a giz.. 35mm film still, photorealistic, cinematic atmosphere, 8k --ar 16:9",
+      "lighting_prompt_stylized": "Stylized animation color key and lighting keyframe study for Sala do 30º Andar (Wayside School): vibrant contrasting daylight palette versus mysterious dramatic emerald and amber glow, Pixar animation feature color script, 8k --ar 16:9",
+      "images_realistic": {
+        "master": "assets/sala_30_andar.jpg",
+        "set_design": "assets/sala_30_andar_set_design.jpg",
+        "lighting": "assets/sala_30_andar_lighting_realistic.jpg"
+      },
+      "images_stylized": {
+        "master": "assets/sala_30_andar.jpg",
+        "set_design": "assets/sala_30_andar_set_design.jpg",
+        "lighting": "assets/sala_30_andar.jpg"
+      },
+      "image_lighting_realistic": "assets/sala_30_andar_lighting_realistic.jpg"
+    }
+  ],
+  "props": [
+    {
+      "tag": "@maca_vermelha",
+      "name": "A Maçã do Feitiço",
+      "description": "Maçã vermelha brilhante e polida sobre uma carteira de madeira antiga, repousando ao lado de um caderno escolar aberto, feixe de luz destacando sua textura.",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "image_propsheet": "assets/maca_vermelha_propsheet.jpg",
+      "casting_prompt_realistic": "Cinematic close-up of a single shiny deep red apple resting on an antique wooden school desk, warm afternoon light ray, vintage textbook open next to it, photorealistic 85mm lens macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D animated hero prop design of a shiny magical red apple with a slight supernatural glow, resting on a cartoon wooden desk, Pixar render aesthetic, 8k --ar 1:1",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of A Maçã do Feitiço, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Maçã vermelha brilhante e polida sobre uma carteira de madeira antiga, repousando ao lado de um caderno escolar aberto, feixe de luz destacando sua textura.. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of A Maçã do Feitiço, 4 angles on clean studio pedestal. Maçã vermelha brilhante e polida sobre uma carteira de madeira antiga, repousando ao lado de um caderno escolar aberto, feixe de luz destacando sua textura.. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha_propsheet.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha_propsheet.jpg"
+      }
+    },
+    {
+      "tag": "@banana",
+      "name": "Banana",
+      "description": "Fruta amarela, objeto usado pela professora Mrs. Jewls como oferta inicial para a turma, acreditando serem macacos.",
+      "casting_prompt_realistic": "Cinematic close-up of a banana, 85mm macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Banana, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Fruta amarela, objeto usado pela professora Mrs. Jewls como oferta inicial para a turma, acreditando serem macacos.. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Banana, 4 angles on clean studio pedestal. Fruta amarela, objeto usado pela professora Mrs. Jewls como oferta inicial para a turma, acreditando serem macacos.. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@peanuts",
+      "name": "Pacotes de amendoim",
+      "description": "Saco de amendoim que a professora Mrs. Jewls traz de sua bolsa como alternativa às bananas para os alunos.",
+      "casting_prompt_realistic": "Cinematic close-up of peanuts in a bag, 85mm macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Pacotes de amendoim, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Saco de amendoim que a professora Mrs. Jewls traz de sua bolsa como alternativa às bananas para os alunos.. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Pacotes de amendoim, 4 angles on clean studio pedestal. Saco de amendoim que a professora Mrs. Jewls traz de sua bolsa como alternativa às bananas para os alunos.. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@saco_amendoins",
+      "name": "Saco de amendoins",
+      "description": "Saco de pano ou plástico contendo amendoins, retirado da bolsa da professora. Objeto que representa a adaptação da professora ao realidade das crianças reais.",
+      "casting_prompt_realistic": "Cinematic close-up of a peanut bag, 85mm macro shot, 8k, --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop, Pixar aesthetic, colorful bag, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Saco de amendoins, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Saco de pano ou plástico contendo amendoins, retirado da bolsa da professora. Objeto que representa a adaptação da professora ao realidade das crianças reais.. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Saco de amendoins, 4 angles on clean studio pedestal. Saco de pano ou plástico contendo amendoins, retirado da bolsa da professora. Objeto que representa a adaptação da professora ao realidade das crianças reais.. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@maçajoe",
+      "name": "Maça (Joe transformado)",
+      "description": "Maça vermelha comum, resultado da transformação mágica do menino Joe pela professora Gorf",
+      "casting_prompt_realistic": "Cinematic close-up of a bright red apple on a wooden desk, 85mm macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a glossy red apple, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Maça (Joe transformado), 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Maça vermelha comum, resultado da transformação mágica do menino Joe pela professora Gorf. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Maça (Joe transformado), 4 angles on clean studio pedestal. Maça vermelha comum, resultado da transformação mágica do menino Joe pela professora Gorf. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@maçajohn",
+      "name": "Maça (John transformado)",
+      "description": "Maça vermelha comum, resultado da transformação mágica do menino John pela professora Gorf",
+      "casting_prompt_realistic": "Cinematic close-up of a bright red apple beside another on a desk, 85mm macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a glossy red apple, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Maça (John transformado), 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Maça vermelha comum, resultado da transformação mágica do menino John pela professora Gorf. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Maça (John transformado), 4 angles on clean studio pedestal. Maça vermelha comum, resultado da transformação mágica do menino John pela professora Gorf. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@maçatodd",
+      "name": "Maça (Todd transformado)",
+      "description": "Maça vermelha comum, resultado da transformação mágica do menino Todd pela professora Gorf",
+      "casting_prompt_realistic": "Cinematic close-up of three bright red apples lined up on a wooden desk, 85mm macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a set of three glossy red apples, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Maça (Todd transformado), 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Maça vermelha comum, resultado da transformação mágica do menino Todd pela professora Gorf. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Maça (Todd transformado), 4 angles on clean studio pedestal. Maça vermelha comum, resultado da transformação mágica do menino Todd pela professora Gorf. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@línguagorf",
+      "name": "Língua da Sra. Gorf",
+      "description": "Língua longa e visível que a professora Gorf puxa para fora como parte de seu feitiço",
+      "casting_prompt_realistic": "Cinematic close-up of a woman's unusually long tongue protruding, 85mm macro shot, 8k --ar 1:1",
+      "casting_prompt_stylized": "Stylized 3D hero prop of an elongated cartoonish tongue, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/maca_vermelha.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Língua da Sra. Gorf, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Língua longa e visível que a professora Gorf puxa para fora como parte de seu feitiço. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Língua da Sra. Gorf, 4 angles on clean studio pedestal. Língua longa e visível que a professora Gorf puxa para fora como parte de seu feitiço. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/maca_vermelha.jpg",
+        "propsheet": "assets/maca_vermelha.jpg"
+      }
+    },
+    {
+      "tag": "@orelhasgorf",
+      "name": "Orelhas da Sra. Gorf",
+      "description": "Orelhas pontiagudas que a professora Gorf mexe (right then left) ao lançar seu feitiço",
+      "casting_prompt_realistic": "Cinematic close-up of pointed elf-like ears silhouetted against a green chalkboard, dramatic rim light, 85mm macro, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of a pair of sharp, movable elf-like ears, Pixar aesthetic, 8k --ar 1:1",
+      "image_primary": "assets/orelhas_gorf.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Orelhas da Sra. Gorf, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Orelhas pontiagudas que a professora Gorf mexe (right then left) ao lançar seu feitiço. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Orelhas da Sra. Gorf, 4 angles on clean studio pedestal. Orelhas pontiagudas que a professora Gorf mexe (right then left) ao lançar seu feitiço. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/orelhas_gorf.jpg",
+        "propsheet": "assets/orelhas_gorf.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/orelhas_gorf.jpg",
+        "propsheet": "assets/orelhas_gorf.jpg"
+      }
+    },
+    {
+      "tag": "@pencils",
+      "name": "Lápis",
+      "description": "Cinco lápis amarelos comuns colocados sobre a mesa de Joe para um exercício de contagem",
+      "casting_prompt_realistic": "Cinematic macro shot of five classic yellow sharpened wooden pencils resting on an aged school desk, graphite tips, 85mm lens, f/2.8, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of five pencils, Pixar aesthetic, subtle shading and texture, 8k --ar 1:1",
+      "image_primary": "assets/pencils.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Lápis, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Cinco lápis amarelos comuns colocados sobre a mesa de Joe para um exercício de contagem. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Lápis, 4 angles on clean studio pedestal. Cinco lápis amarelos comuns colocados sobre a mesa de Joe para um exercício de contagem. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/pencils.jpg",
+        "propsheet": "assets/pencils.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/pencils.jpg",
+        "propsheet": "assets/pencils.jpg"
+      }
+    },
+    {
+      "tag": "@potatoes",
+      "name": "Batatas",
+      "description": "Oito batatas marrons com terra residual dispostas sobre a mesa de Joe durante a aula de contagem",
+      "casting_prompt_realistic": "Cinematic still-life of eight earthy brown potatoes resting on a wooden desk in soft classroom light, 85mm macro, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of eight potatoes, Pixar aesthetic, stylized textures and lighting, 8k --ar 1:1",
+      "image_primary": "assets/potatoes.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Batatas, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Oito batatas marrons com terra residual dispostas sobre a mesa de Joe durante a aula de contagem. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Batatas, 4 angles on clean studio pedestal. Oito batatas marrons com terra residual dispostas sobre a mesa de Joe durante a aula de contagem. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/potatoes.jpg",
+        "propsheet": "assets/potatoes.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/potatoes.jpg",
+        "propsheet": "assets/potatoes.jpg"
+      }
+    },
+    {
+      "tag": "@books",
+      "name": "Livros",
+      "description": "Três livros didáticos fechados, capa dura, sobre a mesa de Joe para contar",
+      "casting_prompt_realistic": "Cinematic product shot of three stacked vintage hardcover textbooks, textured leather covers, gold embossed lettering, 85mm lens, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of three books, Pixar aesthetic, simplified shapes and vibrant colors, 8k --ar 1:1",
+      "image_primary": "assets/books.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Livros, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Três livros didáticos fechados, capa dura, sobre a mesa de Joe para contar. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Livros, 4 angles on clean studio pedestal. Três livros didáticos fechados, capa dura, sobre a mesa de Joe para contar. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/books.jpg",
+        "propsheet": "assets/books.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/books.jpg",
+        "propsheet": "assets/books.jpg"
+      }
+    },
+    {
+      "tag": "@erasers",
+      "name": "Apagadores",
+      "description": "Seis apagadores retangulares rosa ou vermelhos sobre a mesa de Joe no exercício final de contagem",
+      "casting_prompt_realistic": "Cinematic macro photograph of six classic pink rectangular rubber erasers lined up on desk, tactile rubber texture, 85mm, 8k",
+      "casting_prompt_stylized": "Stylized 3D hero prop of six erasers, Pixar aesthetic, clean shading and playful proportions, 8k --ar 1:1",
+      "image_primary": "assets/erasers.jpg",
+      "propsheet_prompt_realistic": "Hero prop model sheet turnaround of Apagadores, 4 orthographic views: front, top-down, profile side, and 45-degree isometric beauty shot. Seis apagadores retangulares rosa ou vermelhos sobre a mesa de Joe no exercício final de contagem. Seamless neutral studio backdrop, 85mm macro lens, f/5.6 for sharp depth of field, tactile surface scratches, micro-imperfections, realistic reflections and specular highlights, photorealistic 35mm film product photography, 8k --ar 16:9",
+      "propsheet_prompt_stylized": "Stylized 3D animated hero prop model sheet of Apagadores, 4 angles on clean studio pedestal. Seis apagadores retangulares rosa ou vermelhos sobre a mesa de Joe no exercício final de contagem. Pixar aesthetic, vibrant bold colors, subtle bevels, charming characterful proportions, Octane render, 8k --ar 16:9",
+      "images_realistic": {
+        "hero": "assets/erasers.jpg",
+        "propsheet": "assets/erasers.jpg"
+      },
+      "images_stylized": {
+        "hero": "assets/erasers.jpg",
+        "propsheet": "assets/erasers.jpg"
+      }
+    }
+  ]
+}

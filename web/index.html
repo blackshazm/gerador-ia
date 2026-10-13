@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tríade Studio — Cinema & Vídeo com IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4.0">
+</head>
+<body>
+  <div class="studio-app">
+    <!-- Sidebar de Navegação -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-badge">🎬 TRÍADE</div>
+        <h1>Studio Director</h1>
+        <p class="tagline">Pipeline Cinematográfico IA</p>
+      </div>
+
+      <!-- Seletor de Histórias / Livros -->
+      <div class="sidebar-section">
+        <div class="section-title">📚 HISTÓRIA / LIVRO ATIVO</div>
+        <select id="select-active-project" class="project-select w-full" onchange="switchProject(this.value)">
+          <option value="wayside_school">Escola Wayside</option>
+        </select>
+        <button class="btn btn-primary w-full" onclick="openNewProjectModal()" style="margin-top:10px; font-weight:700; background:linear-gradient(135deg, #f59e0b, #d97706); color:#000;">
+          <span>📤</span> + ADICIONAR NOVO PDF
+        </button>
+      </div>
+
+      <!-- Abas Principais de Navegação do Sistema -->
+      <div class="sidebar-section">
+        <div class="section-title">MODOS DE TRABALHO</div>
+        <div class="tabs-nav">
+          <button id="tab-btn-shots" class="tab-nav-btn active" onclick="switchMainTab('shots')">
+            <span>🎬</span> Planos & Caderno (6s)
+          </button>
+          <button id="tab-btn-bible" class="tab-nav-btn" onclick="switchMainTab('bible')">
+            <span>🎨</span> Bíblia Visual & Arte
+          </button>
+          <button id="tab-btn-book" class="tab-nav-btn" onclick="switchMainTab('book')">
+            <span>📖</span> Livro & Roteiro
+          </button>
+        </div>
+      </div>
+
+      <!-- Alternador de Estilo Visual Global -->
+      <div class="sidebar-section">
+        <div class="section-title">DIREÇÃO DE ARTE / ESTILO</div>
+        <div class="style-toggle-container">
+          <button id="btn-style-realistic" class="style-toggle-btn active" onclick="setVisualStyle('realistic')">
+            <span>🎥</span> Realista (35mm)
+          </button>
+          <button id="btn-style-stylized" class="style-toggle-btn" onclick="setVisualStyle('stylized')">
+            <span>🎨</span> Animação 3D
+          </button>
+        </div>
+      </div>
+
+      <!-- Seletor de Cenas -->
+      <div class="sidebar-section" id="sidebar-scenes-section">
+        <div class="section-title">CENAS DISPONÍVEIS</div>
+        <div id="scenes-list" class="scenes-list">
+          <div class="scene-loading">Carregando cenas...</div>
+        </div>
+      </div>
+
+      <!-- Ações Rápidas -->
+      <div class="sidebar-section">
+        <div class="section-title">AÇÕES RÁPIDAS</div>
+        <button id="btn-re-audio" class="btn btn-secondary w-full">
+          <span>🎙️</span> Regenerar Áudios TTS
+        </button>
+        <button id="btn-batch-video" class="btn btn-secondary w-full" style="border-color:#6366f1; color:#c7d2fe; font-weight:700;">
+          <span>🎬</span> Renderizar Vídeos da Cena
+        </button>
+        <button id="btn-export-timeline" class="btn btn-secondary w-full">
+          <span>✂️</span> Exportar para CapCut
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="engine-indicator">
+          <span class="status-dot"></span>
+          <span>Motores: <strong>Kling AI</strong> + <strong>Veo</strong></span>
+        </div>
+        <div class="credit">Tríade Architecture v1.2</div>
+      </div>
+    </aside>
+
+    <!-- Área Principal de Produção -->
+    <main class="main-content">
+
+      <!-- ========================================== -->
+      <!-- ABA 1: PLANOS & CADERNO (O ESTÚDIO PRINCIPAL) -->
+      <!-- ========================================== -->
+      <div id="tab-content-shots" class="tab-panel active">
+        <!-- Top Header da Cena -->
+        <header class="scene-header">
+          <div class="scene-meta">
+            <div class="scene-breadcrumbs">
+              <span id="scene-id-badge" class="badge badge-accent">SC_02</span>
+              <span id="scene-location-text">Sala de aula do 30º andar</span>
+            </div>
+            <h2 id="scene-title-text" class="scene-title">Dona Gorf — O Feitiço das Maçãs</h2>
+            <div class="characters-row" id="scene-characters-list">
+              <span class="char-chip">@dona_gorf</span>
+              <span class="char-chip">@joe</span>
+            </div>
+          </div>
+
+          <div class="scene-stats">
+            <div class="stat-box">
+              <div class="stat-value" id="stat-total-duration">36.0s</div>
+              <div class="stat-label">Duração Total</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" id="stat-total-shots">4</div>
+              <div class="stat-label">Planos de ~6s</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">L-Cut</div>
+              <div class="stat-label">Áudio Contínuo</div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Grade de Micro-Beats / Planos Cinematográficos -->
+        <section class="shots-container">
+          <div class="section-header-row">
+            <div>
+              <h3>Caderno de Planos de 6 Segundos ("Copiar e Colar")</h3>
+              <p class="section-desc">Cada plano exibe a foto de referência real do ator/cenário para você carregar no Kling AI ou Runway.</p>
+            </div>
+            <div class="quick-links">
+              <a href="https://klingai.org/" target="_blank" class="ext-link" rel="noreferrer">Abrir Kling AI ↗</a>
+              <a href="https://elevenlabs.io/" target="_blank" class="ext-link" rel="noreferrer">Abrir ElevenLabs ↗</a>
+            </div>
+          </div>
+
+          <div id="shots-grid" class="shots-grid">
+            <!-- Cards dos planos gerados dinamicamente via JS -->
+          </div>
+        </section>
+
+        <!-- Timeline Dock Inferior -->
+        <footer class="timeline-dock">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <span>🎞️ Linha do Tempo Sequencial (Cortes de 6s em L-Cut)</span>
+              <span class="timeline-hint">Áudio contínuo fluindo sobre a alternância de planos</span>
+            </div>
+            <div class="timeline-time-total" id="timeline-time-display">00:00 / 00:36</div>
+          </div>
+          <div class="timeline-track" id="timeline-track">
+            <!-- Segmentos gerados via JS -->
+          </div>
+        </footer>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- ABA 2: BÍBLIA VISUAL & DIREÇÃO DE ARTE     -->
+      <!-- ========================================== -->
+      <div id="tab-content-bible" class="tab-panel">
+        <header class="tab-header">
+          <div>
+            <h2>🎨 Bíblia Visual & Model Sheets de Arte</h2>
+            <p class="section-desc">Cofre de referências fixas: Personagens, Cenários e Objetos de Cena trancados para evitar quebras visuais.</p>
+          </div>
+        </header>
+
+        <!-- Guia de Ferramentas Recomendadas de IA -->
+        <div class="tools-guide-banner">
+          <div class="tool-guide-card">
+            <span class="tool-badge">Ferramenta para Imagens & Model Sheets</span>
+            <h4>🎨 Midjourney v6 ou Flux.1</h4>
+            <p>Copie os prompts de Model Sheet abaixo e cole no Midjourney/Flux. Ele gera o personagem em 4 ângulos perfeitos (Frente, 3/4, Perfil, Costas) mantendo roupas e traços idênticos.</p>
+          </div>
+          <div class="tool-guide-card">
+            <span class="tool-badge">Ferramenta para Vídeo (6 Segundos)</span>
+            <h4>🎬 Kling AI / Google Veo / Runway Gen-3</h4>
+            <p>Carregue a foto frontal da Pose 1 como Start Frame no Kling AI. O vídeo será animado respeitando os sliders numéricos calculados pelo nosso compilador.</p>
+          </div>
+        </div>
+
+        <!-- Seção: Personagens / Casting -->
+        <section class="bible-section">
+          <div class="bible-section-header">
+            <h3>👤 Personagens & Elenco (Model Sheets e Expressões)</h3>
+            <span class="badge badge-accent">Anti Face-Drift</span>
+          </div>
+          <div id="bible-characters-grid" class="asset-grid">
+            <!-- Cards injetados via JS -->
+          </div>
+        </section>
+
+        <!-- Seção: Cenários / Locações -->
+        <section class="bible-section">
+          <div class="bible-section-header">
+            <h3>🏛️ Cenários & Locações (Master Plates & Matte Painting)</h3>
+            <span class="badge badge-cyan">Continuidade Espacial</span>
+          </div>
+          <div id="bible-locations-grid" class="asset-grid">
+            <!-- Cards injetados via JS -->
+          </div>
+        </section>
+
+        <!-- Seção: Objetos de Cena / Props -->
+        <section class="bible-section">
+          <div class="bible-section-header">
+            <h3>🍎 Objetos de Cena (Props Críticos)</h3>
+            <span class="badge badge-gold">Âncoras Físicas</span>
+          </div>
+          <div id="bible-props-grid" class="asset-grid">
+            <!-- Cards injetados via JS -->
+          </div>
+        </section>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- ========================================== -->
+      <!-- ABA 3: LIVRO & ROTEIRO — SPLIT-SCREEN (LADO A LADO) -->
+      <!-- ========================================== -->
+      <div id="tab-content-book" class="tab-panel">
+        <header class="tab-header" style="margin-bottom:16px;">
+          <div>
+            <h2>📖 Leitura & Direção de Cena (Split-Screen)</h2>
+            <p class="section-desc">Leia o capítulo na íntegra (Original ou Traduzido) à esquerda e acompanhe a decupagem de planos à direita.</p>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <select id="select-book-chapter" class="chapter-select" onchange="onBookChapterChange(this.value)" title="Selecione o Capítulo">
+              <option value="1">Capítulo 1</option>
+            </select>
+            <select id="select-llm-provider" class="chapter-select" style="min-width: 200px;" title="Motor de IA">
+              <option value="gemini" selected>✨ Google Gemini (Flash — Rápido)</option>
+              <option value="openrouter">⚡ OpenRouter (NVIDIA Nemotron)</option>
+              <option value="nvidia">🟢 NVIDIA NIM (API Oficial)</option>
+              <option value="ollama">💻 Ollama Local (Offline)</option>
+            </select>
+            <button id="btn-trigger-translate" class="btn btn-secondary" onclick="triggerChapterTranslate()">
+              <span>🇧🇷</span> Traduzir Capítulo
+            </button>
+            <button id="btn-trigger-decoupage" class="btn btn-primary" onclick="triggerDecoupage()">
+              <span>🎬</span> Decupar Cena (6s)
+            </button>
+          </div>
+        </header>
+
+        <!-- Container Lado a Lado (Split-Screen) -->
+        <div class="split-screen-layout">
+          <!-- Coluna Esquerda: Leitor do Capítulo Integral -->
+          <div class="split-col-book">
+            <div class="split-col-header">
+              <div class="split-col-title-group">
+                <span class="split-col-tag">TEXTO DO CAPÍTULO</span>
+                <h3 id="book-reader-title" class="split-col-h3">Carregando capítulo...</h3>
+              </div>
+              <div class="lang-switch-tabs">
+                <button id="btn-lang-pt" class="lang-tab-btn active" onclick="switchReaderLanguage('pt')">
+                  🇧🇷 Português
+                </button>
+                <button id="btn-lang-orig" class="lang-tab-btn" onclick="switchReaderLanguage('orig')">
+                  🇺🇸 Original
+                </button>
+              </div>
+            </div>
+
+            <div class="book-reader-meta-bar">
+              <span id="book-reader-status-badge" class="badge badge-subtle">⏳ Verificando tradução...</span>
+              <span id="book-reader-word-count" class="book-reader-meta-text">0 palavras</span>
+            </div>
+
+            <div id="book-reader-body" class="book-reader-text-area">
+              <div class="reader-placeholder">Selecione um capítulo para iniciar a leitura.</div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Planos Decupados e Direção da Cena -->
+          <div class="split-col-shots">
+            <div class="split-col-header">
+              <div class="split-col-title-group">
+                <span class="split-col-tag">DIREÇÃO CINEMATOGRÁFICA</span>
+                <h3 id="split-shots-scene-title" class="split-col-h3">Planos Decupados (6s)</h3>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <button class="btn btn-secondary btn-sm" onclick="regenerateActiveSceneAudio()" title="Gerar áudios para todos os planos">
+                  <span>🎙️</span> Áudios
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="exportTimelineFromBook()" title="Exportar para CapCut">
+                  <span>✂️</span> CapCut
+                </button>
+              </div>
+            </div>
+
+            <div class="split-shots-meta-bar">
+              <span id="split-shots-status-badge" class="badge badge-accent">Cena não decupada</span>
+              <span id="split-shots-count" class="book-reader-meta-text">0 planos</span>
+            </div>
+
+            <!-- Lista de Cards de Planos da Cena -->
+            <div id="split-shots-list" class="split-shots-scroll-area">
+              <div class="split-shots-empty-state">
+                <div class="empty-icon">🎬</div>
+                <h4>Cena ainda não decupada</h4>
+                <p>Clique em <strong>"Decupar Cena (6s)"</strong> acima para a IA estruturar a ação, locuções e prompts fotorrealistas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grade de Status de Todos os Capítulos (Visão Geral em Cascata) -->
+        <section class="bible-section" style="margin-top:32px;">
+          <div class="bible-section-header">
+            <div>
+              <h3 style="font-size:16px; margin:0 0 4px 0;">📚 Visão Geral de Todos os Capítulos do Livro</h3>
+              <p class="section-desc" style="margin:0;">Status consolidado da obra: decupagem, número de planos e tempo total acumulado.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="loadBookChaptersStatus()">🔄 Atualizar Status</button>
+          </div>
+          <div id="chapters-status-grid" class="chapters-status-grid">
+            <div class="scene-loading">Carregando status dos capítulos...</div>
+          </div>
+        </section>
+
+        <!-- Banner de Ingestão de Novo PDF -->
+        <div class="pdf-upload-highlight-card" style="margin-top:24px;">
+          <div class="pdf-upload-highlight-left">
+            <div class="pdf-upload-badge">GERENCIADOR DE LIVROS</div>
+            <h3>Quer produzir outra história ou livro?</h3>
+            <p>Faça upload de qualquer arquivo PDF aqui. O sistema extrai e higieniza todo o texto automaticamente em Markdown para você decupar em cenas de 6s.</p>
+          </div>
+          <button class="btn btn-primary btn-large" onclick="openNewProjectModal()" style="font-weight:700; background:linear-gradient(135deg, #f59e0b, #d97706); color:#000;">
+            <span>📤</span> ENVIAR NOVO LIVRO EM PDF
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Modal: Adicionar Novo Livro / PDF -->
+  <div id="new-project-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>➕ Nova História / Ingestão de PDF</h3>
+        <button class="modal-close" onclick="closeNewProjectModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="modal-label">Título do Livro / História:</label>
+        <input type="text" id="new-project-title" class="modal-input" placeholder="Ex: O Pequeno Príncipe, Duna...">
+
+        <label class="modal-label">Estilo Visual Inicial:</label>
+        <div class="modal-radio-group">
+          <label class="modal-radio">
+            <input type="radio" name="modal-style" value="realistic" checked>
+            <span>🎥 Cinema Realista (Live-Action 35mm)</span>
+          </label>
+          <label class="modal-radio">
+            <input type="radio" name="modal-style" value="stylized">
+            <span>🎨 Animação 3D (Pixar/Disney Stylized)</span>
+          </label>
+        </div>
+
+        <div class="drop-zone" id="pdf-drop-zone">
+          <div class="drop-zone-icon">📄</div>
+          <div class="drop-zone-text">Clique para selecionar o arquivo PDF do Livro</div>
+          <div class="drop-zone-hint">O sistema extrairá os capítulos e higienizará o texto para Markdown (.md)</div>
+          <input type="file" id="pdf-file-input" accept=".pdf" style="display:none;" onchange="handlePdfSelected(this)">
+        </div>
+        <div id="pdf-selected-name" class="selected-file-label"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeNewProjectModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="submitNewProject()">
+          <span>⚡</span> Criar História & Ingerir
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inputs Ocultos para Upload de Imagens Externas (Planos e Bíblia Visual) -->
+  <input type="file" id="shot-image-upload" accept="image/png, image/jpeg, image/webp" style="display:none;">
+  <input type="file" id="bible-asset-upload" accept="image/png, image/jpeg, image/webp" style="display:none;">
+
+  <!-- Lightbox Modal para Visualizar Imagens 16:9 em Tela Cheia -->
+  <div id="image-modal" class="modal-overlay" style="display:none;" onclick="closeImageModal()">
+    <div class="modal-card" style="max-width:960px; width:95%;" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="image-modal-title">Visualização Cinematográfica 16:9</h3>
+        <button class="modal-close" onclick="closeImageModal()">✕</button>
+      </div>
+      <div class="modal-body" style="padding:0; background:#000; border-radius:6px; overflow:hidden; display:flex; justify-content:center; align-items:center;">
+        <img id="image-modal-img" src="" alt="Ampliação 16:9" style="width:100%; height:auto; max-height:75vh; object-fit:contain;">
+      </div>
+      <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+        <span style="font-size:12px; color:var(--text-muted); font-family:var(--font-mono);">Format: 16:9 Anamorphic • 35mm Live-Action Photorealism</span>
+        <button class="btn btn-secondary" onclick="closeImageModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Edição Rápida do Plano (Ação, Locução e Prompts) -->
+  <div id="edit-shot-modal" class="modal-overlay" style="display:none;" onclick="closeEditShotModal()">
+    <div class="modal-card" style="max-width:850px; width:95%;" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span id="edit-shot-badge" class="badge badge-accent">SC01_SH01</span>
+          <h3 style="margin:0;">✏️ Editar Plano Cinematográfico</h3>
+        </div>
+        <button class="modal-close" onclick="closeEditShotModal()">✕</button>
+      </div>
+      <div class="modal-body" style="max-height:75vh; overflow-y:auto; padding-right:8px;">
+        <input type="hidden" id="edit-shot-id-input">
+        <input type="hidden" id="edit-scene-id-input">
+
+        <div style="margin-bottom:14px;">
+          <label class="modal-label" style="display:flex; justify-content:space-between;">
+            <span>🎬 1. Ação Física & Subtexto (Português do Brasil):</span>
+            <span style="font-size:11px; color:var(--text-muted);">Movimentos corporais e iluminação</span>
+          </label>
+          <textarea id="edit-shot-action" class="modal-textarea" rows="3" placeholder="Descreva os movimentos e atitudes dos personagens..."></textarea>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label class="modal-label" style="display:flex; justify-content:space-between;">
+            <span>🎙️ 2. Locução & Diálogos (Português do Brasil):</span>
+            <span style="font-size:11px; color:var(--text-muted);">Texto exato da narração contínua</span>
+          </label>
+          <textarea id="edit-shot-narration" class="modal-textarea" rows="3" placeholder="Texto falado pela locução neural..."></textarea>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:14px;">
+          <div>
+            <label class="modal-label" style="color:var(--gold-primary);">
+              🖼️ 3. Prompt de Imagem Estática (Start Frame - EN):
+            </label>
+            <textarea id="edit-shot-img-prompt" class="modal-textarea" rows="4" placeholder="Cinematic Arri Alexa 35mm prompt in English..."></textarea>
+          </div>
+          <div>
+            <label class="modal-label" style="color:var(--cyan-accent);">
+              🎬 4. Prompt de Vídeo (Movimento 6s - EN):
+            </label>
+            <textarea id="edit-shot-vid-prompt" class="modal-textarea" rows="4" placeholder="Continuous 6.0-second take describing physical movement..."></textarea>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
+          <label class="modal-label" style="margin-bottom:8px;">🎛️ 5. Controles de Câmera Kling AI (Sliders Numéricos):</label>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:12px; color:var(--text-muted);">Zoom:</span>
+              <input type="number" id="edit-shot-zoom" step="0.5" min="-10" max="10" value="0.0" class="modal-input" style="width:70px; margin:0; padding:4px 8px;">
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:12px; color:var(--text-muted);">Horizontal:</span>
+              <input type="number" id="edit-shot-horiz" step="0.5" min="-10" max="10" value="0.0" class="modal-input" style="width:70px; margin:0; padding:4px 8px;">
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:12px; color:var(--text-muted);">Vertical:</span>
+              <input type="number" id="edit-shot-vert" step="0.5" min="-10" max="10" value="0.0" class="modal-input" style="width:70px; margin:0; padding:4px 8px;">
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:12px; color:var(--text-muted);">Tilt:</span>
+              <input type="number" id="edit-shot-tilt" step="0.5" min="-10" max="10" value="0.0" class="modal-input" style="width:70px; margin:0; padding:4px 8px;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
+        <button class="btn btn-secondary" onclick="closeEditShotModal()">Cancelar</button>
+        <button id="btn-save-shot-edit" class="btn btn-primary" onclick="submitShotEdit()" style="background:linear-gradient(135deg, #10b981, #059669); font-weight:700;">
+          <span>💾</span> Salvar Alterações do Plano
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificação Toast Flutuante -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js?v=4.0"></script>
+</body>
+</html>

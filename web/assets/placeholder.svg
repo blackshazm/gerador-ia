@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="rgba(168, 85, 247, 0.25)"/>
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+  <circle cx="400" cy="180" r="160" fill="url(#glow)"/>
+  
+  <!-- Retângulo de enquadramento 16:9 tracejado -->
+  <rect x="40" y="30" width="720" height="390" rx="12" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" stroke-dasharray="6 6"/>
+  
+  <!-- Ícone de Câmera / Render IA -->
+  <g transform="translate(360, 130)" stroke="url(#accentGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-35" y="-15" width="70" height="50" rx="10" stroke="url(#accentGrad)" stroke-width="3" fill="rgba(255,255,255,0.03)"/>
+    <circle cx="0" cy="10" r="15" stroke="url(#accentGrad)" stroke-width="3"/>
+    <path d="M-15 -15 L-5 -30 L5 -30 L15 -15 Z" fill="rgba(99, 102, 241, 0.2)"/>
+    <circle cx="20" cy="-2" r="3" fill="#a855f7"/>
+  </g>
+  
+  <!-- Textos -->
+  <text x="400" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f8fafc" text-anchor="middle" letter-spacing="1">
+    AGUARDANDO GERAÇÃO DE IMAGEM
+  </text>
+  <text x="400" y="272" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
+    Clique em "🎨 Gerar com FLUX" ou faça upload de uma imagem externa
+  </text>
+  
+  <!-- Badge inferior -->
+  <rect x="310" y="300" width="180" height="28" rx="14" fill="rgba(99, 102, 241, 0.15)" stroke="rgba(168, 85, 247, 0.4)" stroke-width="1"/>
+  <text x="400" y="319" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">
+    ✨ FLUX.3 • 16:9 Cinema
+  </text>
+</svg>

@@ -1,0 +1,354 @@
+[
+  {
+    "shot_id": "SC01_SH01",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic wide shot at 24fps. 0-2s: Mrs. Gorf stands motionless before the chalkboard, harsh cold window light highlighting her severe silhouette. 2-4s: Slow optical push-in camera movement as she subtly raises her chin and casts a sharp, piercing gaze across the desks. 4-6s: Tension builds as dust motes drift through the beam of light, camera gently drifting forward, natural 24fps motion blur, zero morphing, photorealistic cinema.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.5,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar retrato frontal da professora: 02_visual_bible/characters/@dona_gorf/P1_front.png"
+  },
+  {
+    "shot_id": "SC01_SH02",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second medium close-up at 24fps. 0-2s: Mrs. Gorf leans forward over the dark desk, knuckles tensing on the wood surface. 2-4s: Her lips part as she delivers her menacing threat, nostrils slightly flaring, eyes narrowing in chilling focus. 4-6s: Slight low-angle camera push-in emphasizing her imposing authority, steady breathing, fluid cinematic physics, zero morphing.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 2.0,
+      "horizontal": 0.0,
+      "vertical": 0.5,
+      "tilt": -1.5,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar último frame do Plano 01 (SC01_SH01_last.png) para preservar iluminação e posição da professora."
+  },
+  {
+    "shot_id": "SC01_SH03",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second medium shot at 24fps. 0-2s: Joe clutches his pencil with shaking hands, nervously gulping. 2-4s: He stretches his neck and darts his anxious eyes sideways, peeking at the test paper on John's adjacent desk. 4-6s: Slow subtle lateral camera drift framing his panic, natural human micro-movements, authentic film shutter speed, stable temporal coherence.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": -1.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar imagem frontal de Joe: 02_visual_bible/characters/@joe/P1_front.png"
+  },
+  {
+    "shot_id": "SC01_SH04",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second macro shot at 24fps. 0-2s: Extreme close-up on Mrs. Gorf's right ear in sharp focus. 2-4s: The pointed ear twitches precisely twice in a bizarre mechanical motion as she initiates her curse. 4-6s: Camera slowly pulls in slightly with subtle optical depth, sharp focus on skin and hair details, clean organic motion blur, zero distortion.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 2.5,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar último frame do Plano 02 focado no rosto da Dona Gorf."
+  },
+  {
+    "shot_id": "SC01_SH05",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second close-up take at 24fps. 0-2s: Mrs. Gorf's eyes widen with sinister delight. 2-4s: Her pointed tongue sticks out past her thin lips in an unsettling, supernatural gesture. 4-6s: Camera holds steady on her piercing face as the curse is cast, realistic facial muscle micro-movements, stable cinematic lighting.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 2.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar foto da maçã canônica: 02_visual_bible/props/@maca_vermelha/P1_front.png"
+  },
+  {
+    "shot_id": "SC01_SH06",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second medium close-up at 24fps. 0-2s: Joe's eyes widen in pure disbelief as he hears the snap of the spell. 2-4s: A soft gasp escapes his lips, his hands trembling violently on the wooden desk. 4-6s: Camera slowly glides closer to his terrified face, high temporal stability, photorealistic skin and hair rendering.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.5,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar retrato frontal de Todd: 02_visual_bible/characters/@todd/P1_front.png"
+  },
+  {
+    "shot_id": "SC01_SH07",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second still-life take at 24fps. 0-2s: Camera gently cranes down toward the lone red apple resting on Joe's empty wooden school chair. 2-4s: The apple sits completely still, sunlight catching the waxy red skin with realistic specular reflection. 4-6s: Dust motes slowly swirl in the air above the apple, peaceful yet eerie conclusion of the beat.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": -1.0,
+      "tilt": 1.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar último frame de Dona Gorf olhando friamente para a classe."
+  },
+  {
+    "shot_id": "SC01_SH08",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow drift em Stephen with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 2.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar retrato frontal de Stephen: 02_visual_bible/characters/@stephen/P1_front.png"
+  },
+  {
+    "shot_id": "SC01_SH09",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Panning rápido da porta até a mesa with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 1.5,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 2.0,
+      "roll": 0.0
+    },
+    "start_frame": "Plano geral dinâmico da sala com flashes de luzes verdes onde alunos se transformam."
+  },
+  {
+    "shot_id": "SC01_SH10",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Tracking shot correndo lateralmente com Maurecia with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 2.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 1.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar retrato de Maurecia correndo em direção à porta de madeira."
+  },
+  {
+    "shot_id": "SC01_SH11",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera estática no chão with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.2,
+      "horizontal": 0.0,
+      "vertical": -0.5,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Dona Gorf desajeitada no chão com o giz quebrado ao lado, três meninos rindo ao fundo."
+  },
+  {
+    "shot_id": "SC01_SH12",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow pan da porta até a mesa with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.2,
+      "horizontal": 0.5,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 1.0,
+      "roll": 0.0
+    },
+    "start_frame": "Carregar retrato frontal de Louis: 02_visual_bible/characters/@louis/P1_front.png"
+  },
+  {
+    "shot_id": "SC01_SH13",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow push-in frontal with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.5,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Mesa transbordando de maçãs vermelhas, Louis sorrindo na porta."
+  },
+  {
+    "shot_id": "SC01_SH14",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow tilt-up de Dona Gorf with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.5,
+      "horizontal": 0.0,
+      "vertical": 0.5,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Dona Gorf vestindo casaco de inverno, rindo sozinha diante da pilha de maçãs."
+  },
+  {
+    "shot_id": "SC01_SH15",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera dinâmica rápida acompanhando o salto with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 2.5,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Maçã vermelha no ar em câmera rápida acertando o rosto da professora surpresa."
+  },
+  {
+    "shot_id": "SC01_SH16",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera baixa tremida no chão with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": -0.5,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Dona Gorf caída no chão com dezenas de maçãs caindo e quicando sobre ela."
+  },
+  {
+    "shot_id": "SC01_SH17",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow pull-back revelando as crianças with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Ondas de luz mágica dourada transformando maçãs de volta em crianças de carne e osso."
+  },
+  {
+    "shot_id": "SC01_SH18",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Push-in de suspense violento with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 2.5,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Dona Gorf em fúria absoluta com orelhas prestes a mexer e boca entreaberta."
+  },
+  {
+    "shot_id": "SC01_SH19",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Whip pan rápido no reflexo do espelho with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.5,
+      "horizontal": -0.5,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Jenny erguendo espelho oval refletindo os olhos arregalados da professora."
+  },
+  {
+    "shot_id": "SC01_SH20",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Câmera baixa fixa no chão with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.0,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Vestido escuro caído vazio no chão com uma maçã vermelha rolando para fora."
+  },
+  {
+    "shot_id": "SC01_SH21",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Slow tracking com Louis entrando with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.2,
+      "horizontal": 0.5,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.5,
+      "roll": 0.0
+    },
+    "start_frame": "Louis entrando sorrindo, alunos em círculo silencioso olhando para a maçã no chão."
+  },
+  {
+    "shot_id": "SC01_SH22",
+    "target_engine": "kling_v2",
+    "duration_s": 6.8,
+    "prompt": "Continuous 6.0-second cinematic take at 24fps. 0-2s: Subject maintains controlled posture, steady breathing, establishing eyeline and spatial tension. 2-4s: Dynamic physical movement unfolds naturally according to the beat, realistic weight and micro-actions. 4-6s: Emotional reaction settles into final resting pose before cut. Camera: Push-in dramático de comédia ácida with authentic 24fps optical motion blur, zero temporal morphing, fluid cinematic physics, 35mm film shutter aesthetic.",
+    "negative_prompt": "cartoon, 3d render, CGI, smooth plastic skin, deformed hands, extra fingers, morphing face, temporal flicker, low bitrate, modern technology, oversaturated, watermark, blurry background, floating limbs, frame rate drop",
+    "camera_controls": {
+      "zoom": 1.8,
+      "horizontal": 0.0,
+      "vertical": 0.0,
+      "tilt": 0.0,
+      "pan": 0.0,
+      "roll": 0.0
+    },
+    "start_frame": "Louis lustrando a maçã na camisa xadrez e levando-a à boca para morder."
+  }
+]

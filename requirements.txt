@@ -1,0 +1,18 @@
+# ==============================================================================
+# Tríade Studio — Dependências do Sistema de Produção Audiovisual & IA
+# Python >= 3.10 recomendado
+# ==============================================================================
+
+# --- Processamento de Documentos e Livros ---
+pypdf>=4.0.0
+
+# --- Processamento de Áudio e Locução Neural (TTS) ---
+edge-tts>=6.1.0
+mutagen>=1.47.0
+
+# --- Processamento e Geração de Imagens & Bible Visual ---
+Pillow>=10.0.0
+fal-client>=0.4.0
+
+# --- Utilitários de Rede e HTTP (Opcional / Auxiliar) ---
+requests>=2.32.3

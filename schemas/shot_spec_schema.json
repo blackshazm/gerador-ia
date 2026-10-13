@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ShotSpecSchema",
+  "description": "Schema estrito para especificação de Micro-Beat / Plano Decupado (3 a 6s)",
+  "type": "object",
+  "required": [
+    "scene_id",
+    "shot_id",
+    "sequence_index",
+    "character_in_frame",
+    "camera",
+    "lighting",
+    "physical_action",
+    "duration_s",
+    "chaining"
+  ],
+  "properties": {
+    "scene_id": { "type": "string" },
+    "shot_id": { "type": "string" },
+    "sequence_index": { "type": "integer", "minimum": 1 },
+    "character_in_frame": {
+      "type": "object",
+      "required": ["tag", "screen_position", "face_reference_panel"],
+      "properties": {
+        "tag": { "type": "string" },
+        "screen_position": { "type": "string", "enum": ["screen_left", "screen_center", "screen_right"] },
+        "face_reference_panel": { "type": "string" }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "required": ["lens_mm", "shot_type", "movement", "axis_side", "rule_180_verified"],
+      "properties": {
+        "lens_mm": { "type": "integer", "enum": [18, 24, 35, 50, 85, 135] },
+        "shot_type": { "type": "string", "enum": ["extreme_wide", "wide", "medium", "medium_close_up", "close_up", "insert"] },
+        "movement": { "type": "string" },
+        "axis_side": { "type": "string", "enum": ["Side_A", "Side_B"] },
+        "rule_180_verified": { "type": "boolean", "const": true }
+      }
+    },
+    "lighting": {
+      "type": "object",
+      "required": ["key_light", "ambient_light"],
+      "properties": {
+        "key_light": { "type": "string" },
+        "ambient_light": { "type": "string" },
+        "contrast_ratio": { "type": "string" }
+      }
+    },
+    "physical_action": { "type": "string" },
+    "duration_s": { "type": "number", "minimum": 2.0, "maximum": 10.0 },
+    "chaining": {
+      "type": "object",
+      "required": ["is_chained"],
+      "properties": {
+        "is_chained": { "type": "boolean" },
+        "parent_shot_id": { "type": ["string", "null"] },
+        "start_frame_path": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

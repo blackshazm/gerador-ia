@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SceneCardSchema",
+  "description": "Schema estrito para a Cartela de Cena de 14 campos (smixs) com extensões da Tríade",
+  "type": "object",
+  "required": [
+    "scene_id",
+    "location_tag",
+    "characters_present",
+    "time_of_day_light",
+    "desire",
+    "obstacle",
+    "geometry_blocking",
+    "eye_trace_path",
+    "rhythm_duration_s",
+    "rhythm_camera_speed",
+    "physical_emotion_markers",
+    "sound_design_hint",
+    "forbidden_terms_flag",
+    "continuity_notes"
+  ],
+  "properties": {
+    "scene_id": { "type": "string", "pattern": "^SC-[0-9]{2,3}-[0-9]{3}$" },
+    "location_tag": { "type": "string", "pattern": "^@CENÁRIO\\[.+\\]$" },
+    "characters_present": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^@PERSONAGEM\\[.+\\]$" },
+      "minItems": 1
+    },
+    "time_of_day_light": { "type": "string" },
+    "desire": { "type": "string" },
+    "obstacle": { "type": "string" },
+    "geometry_blocking": { "type": "string" },
+    "eye_trace_path": { "type": "string" },
+    "rhythm_duration_s": { "type": "number", "minimum": 1.0 },
+    "rhythm_camera_speed": { "type": "string" },
+    "physical_emotion_markers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "sound_design_hint": { "type": "string" },
+    "forbidden_terms_flag": { "type": "boolean", "const": false },
+    "continuity_notes": { "type": "string" },
+    "ext": {
+      "type": "object",
+      "properties": {
+        "axis_side": { "type": "string", "enum": ["Side_A", "Side_B"] },
+        "lens_suggested_mm": { "type": "integer" }
+      }
+    }
+  }
+}

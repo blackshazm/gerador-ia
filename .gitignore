@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.system_generated/
+scratch/
+*.zip
+**/.backups/
+fake_dir/
