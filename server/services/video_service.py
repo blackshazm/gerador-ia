@@ -151,7 +151,7 @@ def generate_shot_video(
         return {"status": "error", "message": f"Plano {clean_shot} não encontrado na cena {clean_scene}."}
 
     # Prompt de vídeo
-    prompt = prompt_override or beat_target.get("video_prompt") or beat_target.get("prompt_visual") or beat_target.get("action_description", "")
+    prompt = prompt_override or beat_target.get("video_prompt_en") or beat_target.get("video_prompt") or beat_target.get("prompt_en") or beat_target.get("prompt_visual") or beat_target.get("action_description", "")
     if not prompt:
         prompt = f"Cinematic film shot, smooth camera movement, highly detailed, dramatic lighting"
 

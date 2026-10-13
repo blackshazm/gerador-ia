@@ -16,6 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = BASE_DIR / "scripts"
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 
 import project_context as pc
 paths = pc.get_current_project_paths()
@@ -131,7 +133,7 @@ def decoupage_act_with_ai(client: LLMClient, scene_id: str, chapter_title: str, 
     ]
 
     print(f"  -> Decupando Ato {act_num}/{total_acts} ({len(act_text)} caracteres)...")
-    raw_response = client.chat_completion(messages, temperature=0.3, json_mode=False, max_tokens=2500)
+    raw_response = client.chat_completion(messages, temperature=0.3, json_mode=True, max_tokens=6000)
     act_json = extract_json_from_text(raw_response)
     return act_json.get("beats", [])
 

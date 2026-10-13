@@ -3,6 +3,7 @@ Módulo de Áudio & Pacing: Síntese de Voz e Medição de Tempo dos Cortes
 Pipeline da Tríade - Versão 1.0.0
 """
 import os
+import sys
 import json
 import asyncio
 from pathlib import Path
